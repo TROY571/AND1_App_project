@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="MyDialog" parent="android:Theme.Holo.Light.Dialog" tools:targetApi="ice_cream_sandwich">
+
+        <item name="android:windowSoftInputMode">stateVisible|adjustPan</item>
+        <item name="android:windowFrame">@null</item>
+        ;!-- 边框 -->
+        <item name="android:windowIsFloating">true</item>
+        ;!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsTranslucent">true</item>
+        ;!-- 半透明 -->
+        <item name="android:windowNoTitle">true</item>
+        ;!-- 无标题 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        ;!-- 背景透明 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        ;!-- 模糊 -->
+    </style>
+    <style name="DialogTheme"  parent="@android:style/Theme.Dialog">
+        <!-- 边框 -->
+        <item name="android:windowFrame">@null</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <!-- 背景透明 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 模糊 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 遮罩层透明度 -->
+        <item name="android:backgroundDimAmount">0.5</item>
+    </style>
+    <!--圆环进度条-->
+    <declare-styleable name="RoundProgressBar">
+        <attr name="round_max_progress" format="float" />
+        <attr name="round_bg_color" format="color" />
+        <attr name="round_stroke_width" format="dimension" />
+        <attr name="round_progress" format="float" />
+        <attr name="round_progress_color" format="color" />
+        <attr name="round_first_text" format="string" />
+        <attr name="round_first_text_color" format="color" />
+        <attr name="round_first_text_size" format="dimension" />
+        <attr name="round_second_text" format="string" />
+        <attr name="round_second_text_color" format="color" />
+        <attr name="round_second_text_size" format="dimension" />
+        <attr name="round_min_text" format="string" />
+        <attr name="round_min_text_color" format="color" />
+        <attr name="round_min_text_size" format="dimension" />
+        <attr name="round_max_text" format="string" />
+        <attr name="round_max_text_color" format="color" />
+        <attr name="round_max_text_size" format="dimension" />
+        <attr name="round_angle_size" format="float" />
+        <attr name="round_start_angle" format="float" />
+    </declare-styleable>
+
+    <!--白色风车-->
+    <declare-styleable name="WhiteWindmills">
+        <attr name="windColor" format="reference|color" />
+    </declare-styleable>
+    <!--右上角加号点击弹窗动画效果-->
+    <style name="pop_add">
+        <item name="android:windowEnterAnimation">@anim/pop_add_show</item>
+        <item name="android:windowExitAnimation">@anim/pop_add_hide</item>
+    </style>
+</resources>

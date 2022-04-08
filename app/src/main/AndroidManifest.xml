@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.outsideweather.cn">
+    <!--允许联网 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--获取GSM（2g）、WCDMA（联通3g）等网络状态的信息  -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--获取wifi网络状态的信息 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!--保持CPU 运转，屏幕和键盘灯有可能是关闭的,用于文件上传和下载 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!--获取sd卡写的权限，用于文件上传和下载-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--允许读取手机状态 用于创建BmobInstallation-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 这个权限用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 这个权限用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
+    <application
+        android:allowBackup="true"
+        android:name="com.outsideweather.cn.base.BaseAplication"
+        android:icon="@mipmap/iconstart"
+        android:label="@string/app_name"
+        tools:replace="android:theme"
+        android:requestLegacyExternalStorage="true"
+        android:usesCleartextTraffic="true"
+        android:roundIcon="@mipmap/iconstart"
+        android:supportsRtl="true"
+
+        android:theme="@style/Theme.AppCompat.NoActionBar"> //MaterialManagement
+        <activity android:name="com.outsideweather.cn.ui.HomeMianActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.outsideweather.cn.ui.Weather15Activity"></activity>
+        <activity android:name="com.outsideweather.cn.ui.MyCityActivity"></activity>
+        <activity android:name="com.outsideweather.cn.ui.AddCityActivity"></activity>
+        <activity android:name="com.outsideweather.cn.ui.AddNoteActivity"></activity>
+        <activity android:name="com.outsideweather.cn.ui.NoteDetailActivity"></activity>
+        <activity android:name="com.outsideweather.cn.ui.EditNoteActivity"></activity>
+        <activity android:name="com.outsideweather.cn.ui.SearchNoteActivity"></activity>
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="dGBpeIRSqlGa4Y61ZQe4hX6uGaVxgLHh" />
+        <!--百度地图定位 -->
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" />
+    </application>
+
+</manifest>
