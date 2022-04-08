@@ -121,7 +121,6 @@ public class AddCityActivity extends BaseActivity {
                 Log.i("shinemao","搜索到了2"+throwable.toString());
                 Log.i("shinemao","搜索到了2"+throwable.getMessage());
             }
-
             @Override
             public void onSuccess(GeoBean geoBean) {
                 Log.i("shinemao","搜索到了3");
