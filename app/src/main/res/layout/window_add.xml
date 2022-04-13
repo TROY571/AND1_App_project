@@ -32,7 +32,17 @@
             android:layout_width="140dp"
             android:layout_height="48dp"
             android:visibility="gone"
-            android:text="Favourite cities"
+            android:text="切换单词本"
+            android:foreground="@drawable/bg_white"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_16"/>
+        <TextView
+            android:id="@+id/tv_choose_word"
+            android:gravity="center"
+            android:layout_width="140dp"
+            android:visibility="gone"
+            android:layout_height="48dp"
+            android:text="关闭单词本"
             android:foreground="@drawable/bg_white"
             android:textColor="@color/white"
             android:textSize="@dimen/sp_16"/>

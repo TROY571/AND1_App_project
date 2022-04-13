@@ -5,11 +5,12 @@ import android.app.Application;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.common.BaiduMapSDKException;
 import com.qweather.sdk.view.HeConfig;
-import com.outsideweather.cn.util.ConstApi;
+import com.outsideweather.cn.util.HeFengApi;
 
 
 /**
- * description：initialize Aplication
+ * email：
+ * description：初始化Aplication
  */
 public class BaseAplication extends Application {
     private static BaseAplication baseAplication;
@@ -23,7 +24,7 @@ public class BaseAplication extends Application {
         //提供以下两种方式进行初始化操作：
         //第一：默认初始化
         baseAplication=this;
-        HeConfig.init( ConstApi.HE_FENG_APP_ID,  ConstApi.HE_FENG_APP_KEY);
+        HeConfig.init( HeFengApi.HE_FENG_APP_ID,  HeFengApi.HE_FENG_APP_KEY);
         HeConfig.switchToDevService();
         // 在使用 SDK 各组间之前初始化 context 信息，传入 ApplicationContext
         SDKInitializer.setAgreePrivacy(this,true);

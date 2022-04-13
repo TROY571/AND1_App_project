@@ -7,7 +7,7 @@
         android:background="@color/white"
         android:gravity="center_vertical"
         android:padding="12dp"
-        android:text=""
+        android:text="深圳"
         android:drawablePadding="8dp"
         android:textSize="@dimen/sp_16"
         android:textColor="@color/black"

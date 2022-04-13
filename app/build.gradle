@@ -71,9 +71,15 @@ dependencies {
     api 'org.greenrobot:eventbus:3.1.1'
     implementation files('libs/BaiduLBS_Android.jar')
     implementation files('libs/QWeather_Public_Android_V4.8.jar')
-    //腾讯云存储
-    implementation 'com.aliyun.dpa:oss-android-sdk:2.9.5'
-
     api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
+
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version" // use kapt for Kotlin
+
+    // optional - Guava support for Room, including Optional and ListenableFuture
+    implementation "androidx.room:room-guava:$room_version"
+
+    // Test helpers
+    testImplementation "androidx.room:room-testing:$room_version"
 
 }

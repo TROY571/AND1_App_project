@@ -6,20 +6,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.outsideweather.cn.R;
 import com.outsideweather.cn.adpter.NoteAdapter;
-import com.outsideweather.cn.base.LazyFragment;
+import com.outsideweather.cn.base.BaseLazyFragment;
+import com.outsideweather.cn.dao.NoteDao;
+import com.outsideweather.cn.db.DBManger;
 import com.outsideweather.cn.dialog.BaseDialog;
-import com.outsideweather.cn.Model.NoteModel;
+import com.outsideweather.cn.Bean.NoteBean;
 import com.outsideweather.cn.manger.SQLDBManger;
 import com.outsideweather.cn.ui.AddNoteActivity;
 import com.outsideweather.cn.ui.NoteDetailActivity;
@@ -31,9 +31,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * description：note pad
+ * email：
+ * description：笔记界面
  */
-public class NoteFragement extends LazyFragment {
+public class NoteFragement extends BaseLazyFragment {
 
     private View view;
     private RelativeLayout rlTitle;
@@ -42,12 +43,12 @@ public class NoteFragement extends LazyFragment {
     private ListView listView;
     private FloatingActionButton ivAdd;
     private NoteAdapter noteAdapter;
-    private List<NoteModel> noteModelList = new ArrayList<>();
+    private List<NoteBean> noteBeanList = new ArrayList<>();
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inf, ViewGroup root, Bundle state) {
         if (view == null) {
-            view = inf.inflate(R.layout.fragement2, root, false);
+            view = inf.inflate(R.layout.tab2, root, false);
             StatusBarUtil.setLightStatusBar(getActivity(), true);
             initView();
         }
@@ -95,8 +96,8 @@ public class NoteFragement extends LazyFragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Log.i("TAG", " noteModelList.get(i).getNoteName()" + noteModelList.get(i).getNoteName());
-                NoteDetailActivity.statrNoteDetailActivity(getActivity(), Integer.valueOf(noteModelList.get(i).getUid()));
+                Log.i("TAG", " noteModelList.get(i).getNoteName()" + noteBeanList.get(i).getNoteName());
+                NoteDetailActivity.statrNoteDetailActivity(getActivity(), Integer.valueOf(noteBeanList.get(i).getUid()));
             }
         });
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
@@ -106,9 +107,11 @@ public class NoteFragement extends LazyFragment {
                     @Override
                     public void onClickBack(int status) {
                         if (status == 1) {
-                            SQLDBManger.deleteNote(Integer.valueOf(noteModelList.get(i).getUid()));
+                          //  SQLDBManger.deleteNote(Integer.valueOf(noteBeanList.get(i).getUid()));
                            // Toast.makeText(getActivity(), "删除成功", Toast.LENGTH_LONG).show();
-                            noteModelList.remove(i);
+                            NoteDao noteDao = DBManger.getInstance(getActivity()).noteDao();
+                            noteDao.noteDelete(noteBeanList.get(i));
+                            noteBeanList.remove(i);
                             noteAdapter.notifyDataSetChanged();
                         }
                     }
@@ -129,9 +132,11 @@ public class NoteFragement extends LazyFragment {
     }
 
     public void initData(){
-        noteModelList.clear();
-        noteModelList = SQLDBManger.getNoteList();
-        noteAdapter = new NoteAdapter(getActivity(), noteModelList);
+        noteBeanList.clear();
+     //   noteBeanList = SQLDBManger.getNoteList();
+        NoteDao noteDao = DBManger.getInstance(getActivity()).noteDao();
+        noteBeanList = noteDao.noteQueryAll();
+        noteAdapter = new NoteAdapter(getActivity(), noteBeanList);
         listView.setAdapter(noteAdapter);
     }
 

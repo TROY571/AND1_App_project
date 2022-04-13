@@ -30,18 +30,17 @@
         android:usesCleartextTraffic="true"
         android:roundIcon="@mipmap/iconstart"
         android:supportsRtl="true"
-
-        android:theme="@style/Theme.AppCompat.NoActionBar"> //MaterialManagement
-        <activity android:name="com.outsideweather.cn.ui.HomeMianActivity">
+        android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name="com.outsideweather.cn.ui.MianActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.outsideweather.cn.ui.Weather15Activity"></activity>
-        <activity android:name="com.outsideweather.cn.ui.MyCityActivity"></activity>
-        <activity android:name="com.outsideweather.cn.ui.AddCityActivity"></activity>
+        <activity android:name="com.outsideweather.cn.ui.Weather15DayActivity"></activity>
+        <activity android:name="com.outsideweather.cn.ui.WeatherCityActivity"></activity>
+        <activity android:name="com.outsideweather.cn.ui.AddWeatherCityActivity"></activity>
         <activity android:name="com.outsideweather.cn.ui.AddNoteActivity"></activity>
         <activity android:name="com.outsideweather.cn.ui.NoteDetailActivity"></activity>
         <activity android:name="com.outsideweather.cn.ui.EditNoteActivity"></activity>

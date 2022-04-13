@@ -16,14 +16,16 @@ import androidx.annotation.Nullable;
 
 import com.outsideweather.cn.R;
 import com.outsideweather.cn.base.BaseActivity;
-import com.outsideweather.cn.Model.NoteModel;
+import com.outsideweather.cn.Bean.NoteBean;
+import com.outsideweather.cn.dao.NoteDao;
+import com.outsideweather.cn.db.DBManger;
 import com.outsideweather.cn.manger.SQLDBManger;
 import com.ruffian.library.widget.RTextView;
 
 
 /**
  * email：
- * description：edit note pad
+ * description：编辑记事本
  */
 public class EditNoteActivity extends BaseActivity {
     private LinearLayout lyImage;
@@ -44,7 +46,7 @@ public class EditNoteActivity extends BaseActivity {
     private EditText etContent;
 
     private String uid;
-    private NoteModel noteModel;
+    private NoteBean noteBean;
 
 
     @Override
@@ -52,7 +54,9 @@ public class EditNoteActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note_edit);
         uid = getIntent().getStringExtra("uid");
-        noteModel = SQLDBManger.getNote(uid);
+      //  noteBean = SQLDBManger.getNote(uid);
+        NoteDao noteDao = DBManger.getInstance(this).noteDao();
+        noteBean = noteDao.noteQueryByUid(Integer.valueOf(uid));
         initView();
     }
 
@@ -68,11 +72,11 @@ public class EditNoteActivity extends BaseActivity {
         ivTitle = (TextView) findViewById(R.id.iv_title);
         tvSub = (RTextView) findViewById(R.id.tv_sub);
         etTitle = (EditText) findViewById(R.id.et_title);
-        etTitle.setText(noteModel.getNoteName());
+        etTitle.setText(noteBean.getNoteName());
         tvTime = (TextView) findViewById(R.id.tv_time);
-        tvTime.setText(noteModel.getTime());
+        tvTime.setText(noteBean.getTime());
         etContent = (EditText) findViewById(R.id.et_content);
-        etContent.setText(noteModel.getNoteContent());
+        etContent.setText(noteBean.getNoteContent());
 
         tvSub.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,10 +89,11 @@ public class EditNoteActivity extends BaseActivity {
                     Toast.makeText(EditNoteActivity.this,  getString(R.string.note_add_content_input), Toast.LENGTH_LONG).show();
                     return;
                 }
-
-                noteModel.setNoteContent(etContent.getText().toString());
-                noteModel.setNoteName(etTitle.getText().toString());
-                SQLDBManger.updateNote(noteModel);
+                NoteDao noteDao= DBManger.getInstance(EditNoteActivity.this).noteDao();
+                noteBean.setNoteContent(etContent.getText().toString());
+                noteBean.setNoteName(etTitle.getText().toString());
+               // SQLDBManger.updateNote(noteBean);
+                noteDao.noteUpdate(noteBean);
                 finish();
             }
         });

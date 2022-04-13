@@ -9,18 +9,18 @@
     android:background="@drawable/select_live_msg_bg"
     android:layout_gravity="center"
     >
-
     <TextView
-        android:id="@+id/tvNotice"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:text="提示"
+        android:id="@+id/tvNotice"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
-        android:gravity="center"
-        android:text="Advice"
         android:textColor="#333333"
-        android:textSize="18dp"></TextView>
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:textSize="18dp"
+        android:layout_height="wrap_content">
+    </TextView>
 
     <TextView
         android:layout_width="match_parent"
@@ -43,29 +43,29 @@
         android:layout_width="match_parent"
         android:orientation="horizontal"
         android:layout_height="60dp">
-
         <TextView
-            android:id="@+id/tvCancer"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/note_cancer"
+            android:text="取消"
+            android:id="@+id/tvCancer"
+            android:textSize="15dp"
             android:textColor="#999999"
-            android:textSize="15dp"></TextView>
+            android:layout_height="match_parent">
+        </TextView>
         <View
             android:layout_width="0.5dp"
             android:background="#E5E5E5"
             android:layout_height="match_parent"></View>
-
         <TextView
-            android:id="@+id/tvOpen"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/note_sure"
+            android:text=""
+            android:id="@+id/tvOpen"
+            android:textSize="15dp"
             android:textColor="@color/app_btn_color"
-            android:textSize="15dp"></TextView>
+            android:layout_height="match_parent">
+        </TextView>
     </LinearLayout>
 </LinearLayout>

@@ -2,7 +2,6 @@ package com.outsideweather.cn.fragement;
 
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,25 +20,23 @@ import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.baidu.mapapi.SDKInitializer;
 import com.outsideweather.cn.R;
-import com.outsideweather.cn.adpter.Hourly24Adapter;
-import com.outsideweather.cn.adpter.Weather7Adapter;
+import com.outsideweather.cn.adpter.Weather24HAdapter;
+import com.outsideweather.cn.adpter.Weather7DayAdapter;
 import com.outsideweather.cn.base.BaseAplication;
-import com.outsideweather.cn.base.LazyFragment;
-import com.outsideweather.cn.dialog.PopupMoreWindow;
-import com.outsideweather.cn.event.CityEvent;
-import com.outsideweather.cn.permit.PermitUtil;
-import com.outsideweather.cn.ui.Weather15Activity;
-import com.outsideweather.cn.util.DateUtils;
+import com.outsideweather.cn.base.BaseLazyFragment;
+import com.outsideweather.cn.dialog.WeatherWindow;
+import com.outsideweather.cn.event.WeatherCityEvent;
+import com.outsideweather.cn.BasePermit.PermitUtil;
+import com.outsideweather.cn.ui.Weather15DayActivity;
+import com.outsideweather.cn.util.BaseDateUtils;
 import com.outsideweather.cn.util.StatusBarUtil;
-import com.outsideweather.cn.util.TostUtil;
-import com.outsideweather.cn.util.WeatherUtil;
-import com.outsideweather.cn.view.RecyclerViewAnimation;
+import com.outsideweather.cn.util.PublicTostUtil;
+import com.outsideweather.cn.util.HeFengWeatherUtil;
+import com.outsideweather.cn.view.RecyclerAnimation;
 import com.outsideweather.cn.view.RoundProgressBar;
 import com.outsideweather.cn.view.WhiteWindmills;
-import com.qweather.sdk.bean.IndicesBean;
 import com.qweather.sdk.bean.air.AirNowBean;
 import com.qweather.sdk.bean.base.Code;
-import com.qweather.sdk.bean.base.IndicesType;
 import com.qweather.sdk.bean.base.Lang;
 import com.qweather.sdk.bean.base.Unit;
 import com.qweather.sdk.bean.weather.WeatherDailyBean;
@@ -60,7 +57,7 @@ import java.util.List;
  * email：
  * description：天气主页
  */
-public class WeatherFragement extends LazyFragment {
+public class WeatherFragement extends BaseLazyFragment {
 
     private View view;
     LocationClient mLocClient;
@@ -111,10 +108,10 @@ public class WeatherFragement extends LazyFragment {
     private TextView tvDrsg;
     private TextView tvFlu;
     private List<WeatherDailyBean.DailyBean> dailyBeanList7 = new ArrayList<>();
-    private Weather7Adapter wheather7Adapter;
+    private Weather7DayAdapter wheather7Adapter;
     private RecyclerView rvHourly;
     private List<WeatherHourlyBean.HourlyBean> hourlyBeans24 = new ArrayList<>();
-    private Hourly24Adapter hourly24Adapter;
+    private Weather24HAdapter hourly24Adapter;
     private LinearLayout lyLocation;
     private ImageView ivLocation;
     private RelativeLayout rltop;
@@ -124,7 +121,7 @@ public class WeatherFragement extends LazyFragment {
     @Override
     public View onCreateView(LayoutInflater inf, ViewGroup root, Bundle state) {
         if (view == null) {
-            view = inf.inflate(R.layout.fragement1, root, false);
+            view = inf.inflate(R.layout.tab1, root, false);
             StatusBarUtil.setLightStatusBar(getActivity(), false);
             initView();
             EventBus.getDefault().register(this);
@@ -191,16 +188,14 @@ public class WeatherFragement extends LazyFragment {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onEvent(CityEvent event) {
+    public void onEvent(WeatherCityEvent event) {
         postionData = event.searchKey;
         city = event.name;
         ivTitle.setText(event.name);
-        Log.i("shinemao", "postionData" + postionData + "event.name" + event.name);
         getNewWeather(postionData);
         get7DayWeather(postionData);
         get24HoursWheather(postionData);
         getAirNows(postionData);
-        // getDayIndices(postionData);
     }
 
     @Override
@@ -259,9 +254,9 @@ public class WeatherFragement extends LazyFragment {
             @Override
             public void onClick(View view) {
                 if (TextUtils.isEmpty(postionData)) {
-                    TostUtil.showTost(getString(R.string.w_no_more));
+                    PublicTostUtil.showTost(getString(R.string.w_no_more));
                 } else {
-                    Weather15Activity.startWeather15Activity(getActivity(), city, postionData);
+                    Weather15DayActivity.startWeather15Activity(getActivity(), city, postionData);
                 }
             }
         });
@@ -276,12 +271,7 @@ public class WeatherFragement extends LazyFragment {
         ivAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new PopupMoreWindow(getActivity(), new PopupMoreWindow.onWorldRefress() {
-                    @Override
-                    public void refuress() {
-                        LyWord.setVisibility(View.GONE);
-                    }
-                }).show(ivAdd);
+                new WeatherWindow(getActivity()).show(ivAdd);
             }
         });
         lyLocation = (LinearLayout) view.findViewById(R.id.lyLocation);
@@ -304,11 +294,11 @@ public class WeatherFragement extends LazyFragment {
 
     public void initListBase() {
         //天气预报  7天
-        wheather7Adapter = new Weather7Adapter(dailyBeanList7);
+        wheather7Adapter = new Weather7DayAdapter(dailyBeanList7);
         rv.setLayoutManager(new LinearLayoutManager(getActivity()));
         rv.setAdapter(wheather7Adapter);
         //天气预报 24小时
-        hourly24Adapter = new Hourly24Adapter(hourlyBeans24);
+        hourly24Adapter = new Weather24HAdapter(hourlyBeans24);
         LinearLayoutManager managerHourly = new LinearLayoutManager(getActivity());
         managerHourly.setOrientation(RecyclerView.HORIZONTAL);//设置列表为横向
         rvHourly.setLayoutManager(managerHourly);
@@ -326,9 +316,7 @@ public class WeatherFragement extends LazyFragment {
             if (location == null) {
                 return;
             }
-            //   Log.i("shinemao","位置信息");
             if (isFirstLoc) {
-                Log.i("shinemao", "位置信息1");
                 isFirstLoc = false;
                 Plongitude = "" + location.getLongitude();
                 Platitude = "" + location.getLatitude();
@@ -361,38 +349,37 @@ public class WeatherFragement extends LazyFragment {
         QWeather.getWeatherNow(getActivity(), lotion, Lang.EN, Unit.METRIC, new QWeather.OnResultWeatherNowListener() {
             @Override
             public void onError(Throwable throwable) {
-                Log.i("shinemao", "weatherNowBean错误");
+
             }
 
             @Override
             public void onSuccess(WeatherNowBean weatherNowBean) {
-                Log.i("shinemao", "weatherNowBean" + weatherNowBean.getCode());
                 if (weatherNowBean.getCode() == Code.OK) {
                     WeatherNowBean.NowBaseBean baseBean = weatherNowBean.getNow();
-                    String time = DateUtils.updateTime(baseBean.getObsTime());//截去前面的字符，保留后面所有的字符，就剩下 22:00
-                    tvOldTime.setText(getString(R.string.w_time) + WeatherUtil.showTimeInfo(time) + time);
+                    String time = BaseDateUtils.updateTime(baseBean.getObsTime());//截去前面的字符，保留后面所有的字符，就剩下 22:00
+                    tvOldTime.setText(getString(R.string.w_time) + HeFengWeatherUtil.showTimeInfo(time) + time);
                     tvTempBoday.setText(getString(R.string.w_boday_hot) + baseBean.getFeelsLike() + "℃");
                     tvTemperature.setText(baseBean.getTemp());
-                    tvDay.setText(DateUtils.getWeekOfDate(new Date()));//星期
-                    tvMouth.setText(DateUtils.getNowDate());
+                    tvDay.setText(BaseDateUtils.getWeekOfDate(new Date()));//星期
+                    tvMouth.setText(BaseDateUtils.getNowDate());
 
                     int code = Integer.parseInt(baseBean.getIcon());
-                    WeatherUtil.changeIcon(ivNewWhather, code);
-                    WeatherUtil.changeBgIcon(ivImage, code);
+                    HeFengWeatherUtil.changeIcon(ivNewWhather, code);
+                    HeFengWeatherUtil.changeBgIcon(ivImage, code);
                     tvWindDirection.setText(getString(R.string.w_wind_x) + "     " + baseBean.getWindDir());//风向
                     tvWindPower.setText(getString(R.string.w_wind_l) + "     " + baseBean.getWindScale());//风力
                     wwBig.startRotate();//大风车开始转动
                     wwSmall.startRotate();//小风车开始转动
                 } else if (weatherNowBean.getCode() == Code.NO_DATA) {
-                    TostUtil.showTost(Code.NO_DATA.getTxt());
+                    PublicTostUtil.showTost(Code.NO_DATA.getTxt());
                 } else if (weatherNowBean.getCode() == Code.NO_MORE_REQUESTS) {
-                    TostUtil.showTost(Code.NO_MORE_REQUESTS.getTxt());
+                    PublicTostUtil.showTost(Code.NO_MORE_REQUESTS.getTxt());
                 } else if (weatherNowBean.getCode() == Code.TOO_FAST) {
-                    TostUtil.showTost(Code.TOO_FAST.getTxt());
+                    PublicTostUtil.showTost(Code.TOO_FAST.getTxt());
                 } else if (weatherNowBean.getCode() == Code.PERMISSION_DENIED) {
-                    TostUtil.showTost(Code.PERMISSION_DENIED.getTxt());
+                    PublicTostUtil.showTost(Code.PERMISSION_DENIED.getTxt());
                 } else {
-                    TostUtil.showTost(getString(R.string.err_msg));
+                    PublicTostUtil.showTost(getString(R.string.err_msg));
                 }
 
             }
@@ -420,17 +407,17 @@ public class WeatherFragement extends LazyFragment {
                     //刷新列表
                     wheather7Adapter.notifyDataSetChanged();
                     //底部动画展示
-                    RecyclerViewAnimation.runLayoutAnimation(rv);
+                    RecyclerAnimation.runLayoutAnimation(rv);
                 } else if (weatherDailyBean.getCode() == Code.NO_DATA) {
-                    TostUtil.showTost(Code.NO_DATA.getTxt());
+                    PublicTostUtil.showTost(Code.NO_DATA.getTxt());
                 } else if (weatherDailyBean.getCode() == Code.NO_MORE_REQUESTS) {
-                    TostUtil.showTost(Code.NO_MORE_REQUESTS.getTxt());
+                    PublicTostUtil.showTost(Code.NO_MORE_REQUESTS.getTxt());
                 } else if (weatherDailyBean.getCode() == Code.TOO_FAST) {
-                    TostUtil.showTost(Code.TOO_FAST.getTxt());
+                    PublicTostUtil.showTost(Code.TOO_FAST.getTxt());
                 } else if (weatherDailyBean.getCode() == Code.PERMISSION_DENIED) {
-                    TostUtil.showTost(Code.PERMISSION_DENIED.getTxt());
+                    PublicTostUtil.showTost(Code.PERMISSION_DENIED.getTxt());
                 } else {
-                    TostUtil.showTost(getString(R.string.err_msg));
+                    PublicTostUtil.showTost(getString(R.string.err_msg));
                 }
 
             }
@@ -455,17 +442,17 @@ public class WeatherFragement extends LazyFragment {
                     //刷新列表
                     hourly24Adapter.notifyDataSetChanged();
                     //底部动画展示
-                    RecyclerViewAnimation.runLayoutAnimationRight(rvHourly);
+                    RecyclerAnimation.runLayoutAnimationRight(rvHourly);
                 } else if (weatherHourlyBean.getCode() == Code.NO_DATA) {
-                    TostUtil.showTost(Code.NO_DATA.getTxt());
+                    PublicTostUtil.showTost(Code.NO_DATA.getTxt());
                 } else if (weatherHourlyBean.getCode() == Code.NO_MORE_REQUESTS) {
-                    TostUtil.showTost(Code.NO_MORE_REQUESTS.getTxt());
+                    PublicTostUtil.showTost(Code.NO_MORE_REQUESTS.getTxt());
                 } else if (weatherHourlyBean.getCode() == Code.TOO_FAST) {
-                    TostUtil.showTost(Code.TOO_FAST.getTxt());
+                    PublicTostUtil.showTost(Code.TOO_FAST.getTxt());
                 } else if (weatherHourlyBean.getCode() == Code.PERMISSION_DENIED) {
-                    TostUtil.showTost(Code.PERMISSION_DENIED.getTxt());
+                    PublicTostUtil.showTost(Code.PERMISSION_DENIED.getTxt());
                 } else {
-                    TostUtil.showTost(getString(R.string.err_msg));
+                    PublicTostUtil.showTost(getString(R.string.err_msg));
                 }
 
             }
@@ -509,15 +496,15 @@ public class WeatherFragement extends LazyFragment {
                     tvCo.setText(nowBean.getCo());//一氧化碳
 
                 } else if (airNowBean.getCode() == Code.NO_DATA) {
-                    TostUtil.showTost(Code.NO_DATA.getTxt());
+                    PublicTostUtil.showTost(Code.NO_DATA.getTxt());
                 } else if (airNowBean.getCode() == Code.NO_MORE_REQUESTS) {
-                    TostUtil.showTost(Code.NO_MORE_REQUESTS.getTxt());
+                    PublicTostUtil.showTost(Code.NO_MORE_REQUESTS.getTxt());
                 } else if (airNowBean.getCode() == Code.TOO_FAST) {
-                    TostUtil.showTost(Code.TOO_FAST.getTxt());
+                    PublicTostUtil.showTost(Code.TOO_FAST.getTxt());
                 } else if (airNowBean.getCode() == Code.PERMISSION_DENIED) {
-                    TostUtil.showTost(Code.PERMISSION_DENIED.getTxt());
+                    PublicTostUtil.showTost(Code.PERMISSION_DENIED.getTxt());
                 } else {
-                    TostUtil.showTost(getString(R.string.err_msg));
+                    PublicTostUtil.showTost(getString(R.string.err_msg));
                 }
 
             }
@@ -526,66 +513,6 @@ public class WeatherFragement extends LazyFragment {
     }
 
 
-    public void getDayIndices(String location) {
-        List<IndicesType> indicesTypes = new ArrayList<>();
-        indicesTypes.add(IndicesType.ALL);
-        QWeather.getIndices1D(getActivity(), location, Lang.ZH_HANS, indicesTypes, new QWeather.OnResultIndicesListener() {
-            @Override
-            public void onError(Throwable throwable) {
-
-            }
-
-            @Override
-            public void onSuccess(IndicesBean indicesBean) {
-                if (indicesBean.getCode() == Code.OK) {
-                    List<IndicesBean.DailyBean> data = indicesBean.getDailyList();
-
-                    for (int i = 0; i < data.size(); i++) {
-                        switch (data.get(i).getType()) {
-                            case "5":
-                                tvUv.setText("紫外线：" + data.get(i).getText());
-                                break;
-                            case "8":
-                                tvComf.setText("舒适度：" + data.get(i).getText());
-                                break;
-                            case "3":
-                                tvDrsg.setText("穿衣指数：" + data.get(i).getText());
-                                break;
-                            case "9":
-                                tvFlu.setText("感冒指数：" + data.get(i).getText());
-                                break;
-                            case "1":
-                                tvSport.setText("运动指数：" + data.get(i).getText());
-                                break;
-                            case "6":
-                                tvTrav.setText("旅游指数：" + data.get(i).getText());
-                                break;
-                            case "2":
-                                tvCw.setText("洗车指数：" + data.get(i).getText());
-                                break;
-                            case "10":
-                                tvAir.setText("空气指数：" + data.get(i).getText());
-                                break;
-                            default:
-                                break;
-                        }
-                    }
-
-                } else if (indicesBean.getCode() == Code.NO_DATA) {
-                    TostUtil.showTost(Code.NO_DATA.getTxt());
-                } else if (indicesBean.getCode() == Code.NO_MORE_REQUESTS) {
-                    TostUtil.showTost(Code.NO_MORE_REQUESTS.getTxt());
-                } else if (indicesBean.getCode() == Code.TOO_FAST) {
-                    TostUtil.showTost(Code.TOO_FAST.getTxt());
-                } else if (indicesBean.getCode() == Code.PERMISSION_DENIED) {
-                    TostUtil.showTost(Code.PERMISSION_DENIED.getTxt());
-                } else {
-                    TostUtil.showTost(getString(R.string.err_msg));
-                }
-
-            }
-        });
-    }
 
 }
 

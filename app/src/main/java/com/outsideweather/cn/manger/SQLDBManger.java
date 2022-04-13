@@ -6,8 +6,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.outsideweather.cn.Model.CityModel;
-import com.outsideweather.cn.Model.NoteModel;
+import com.outsideweather.cn.Bean.CityBean;
+import com.outsideweather.cn.Bean.NoteBean;
 import com.outsideweather.cn.db.MyDatabaseHelper;
 
 import java.util.ArrayList;
@@ -33,13 +33,13 @@ public class SQLDBManger {
     }
 
 
-    public static  void addCity(CityModel cityModel){
+    public static  void addCity(CityBean cityBean){
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         //使用ContentValues来对要添加的数据进行组装。
         ContentValues values = new ContentValues();
         //开始组装第一条数据
-        values.put("cityName",cityModel.getCityName());
-        values.put("cityPostion",cityModel.getCityPostion());
+        values.put("cityName", cityBean.getCityName());
+        values.put("cityPostion", cityBean.getCityPostion());
         db.insert("CITY",null,values);//插入第一条数据
         db.close();
     }
@@ -49,8 +49,8 @@ public class SQLDBManger {
         db.delete("CITY","id='"+id+"'",null);
     }
 
-    public static  List<CityModel> getCityList(){
-        List<CityModel> cityModelArrayList=new ArrayList<>();
+    public static  List<CityBean> getCityList(){
+        List<CityBean> cityBeanArrayList =new ArrayList<>();
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         Cursor cursor = db.query("CITY",null,null,null,null,null,"id desc",null);
         if (cursor.moveToFirst()){
@@ -58,18 +58,18 @@ public class SQLDBManger {
                 @SuppressLint("Range")  String cityName = cursor.getString(cursor.getColumnIndex("cityName"));
                 @SuppressLint("Range") String cityPostion = cursor.getString(cursor.getColumnIndex("cityPostion"));
                 @SuppressLint("Range") String id = String.valueOf(cursor.getInt(cursor.getColumnIndex("id")));
-                CityModel cityModel=new CityModel();
-                cityModel.setId(id);
-                cityModel.setCityName(cityName);
-                cityModel.setCityPostion(cityPostion);
-                cityModelArrayList.add(cityModel);
+                CityBean cityBean =new CityBean();
+                cityBean.setId(Integer.valueOf(id));
+                cityBean.setCityName(cityName);
+                cityBean.setCityPostion(cityPostion);
+                cityBeanArrayList.add(cityBean);
             }while (cursor.moveToNext());
         }
         cursor.close();
-        return cityModelArrayList;
+        return cityBeanArrayList;
     }
-    public static  CityModel getCity(String ids){
-        CityModel cityModel=new CityModel();
+    public static CityBean getCity(String ids){
+        CityBean cityBean =new CityBean();
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         Cursor cursor = db.query("CITY",null,"cityName='"+ids+"'",null,null,null,"",null);
         if (cursor.moveToFirst()){
@@ -77,39 +77,39 @@ public class SQLDBManger {
                 @SuppressLint("Range")  String cityName = cursor.getString(cursor.getColumnIndex("cityName"));
                 @SuppressLint("Range") String cityPostion = cursor.getString(cursor.getColumnIndex("cityPostion"));
                 @SuppressLint("Range") String id = String.valueOf(cursor.getInt(cursor.getColumnIndex("id")));
-                cityModel.setId(id);
-                cityModel.setCityName(cityName);
-                cityModel.setCityPostion(cityPostion);
+                cityBean.setId(Integer.valueOf(id));
+                cityBean.setCityName(cityName);
+                cityBean.setCityPostion(cityPostion);
             }while (cursor.moveToNext());
         }
         cursor.close();
-        return cityModel;
+        return cityBean;
     }
 
 
 
 
 
-    public static  void addNote(NoteModel noteModel){
+    public static  void addNote(NoteBean noteBean){
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         //使用ContentValues来对要添加的数据进行组装。
         ContentValues values = new ContentValues();
         //开始组装第一条数据
-        values.put("noteName",noteModel.getNoteName());
-        values.put("noteContent",noteModel.getNoteContent());
-        values.put("time",noteModel.getTime());
+        values.put("noteName", noteBean.getNoteName());
+        values.put("noteContent", noteBean.getNoteContent());
+        values.put("time", noteBean.getTime());
         db.insert("NOTE",null,values);//插入第一条数据
         db.close();
     }
 
-    public static  void updateNote(NoteModel noteModel){
+    public static  void updateNote(NoteBean noteBean){
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         //使用ContentValues来对要添加的数据进行组装。
         ContentValues values = new ContentValues();
         //开始组装第一条数据
-        values.put("noteName",noteModel.getNoteName());
-        values.put("noteContent",noteModel.getNoteContent());
-        db.update("NOTE",values,"id='"+noteModel.getUid()+"'",null);
+        values.put("noteName", noteBean.getNoteName());
+        values.put("noteContent", noteBean.getNoteContent());
+        db.update("NOTE",values,"id='"+ noteBean.getUid()+"'",null);
     }
 
     public static  void deleteNote(int id){
@@ -117,8 +117,8 @@ public class SQLDBManger {
         db.delete("NOTE","id='"+id+"'",null);
     }
 
-    public static  List<NoteModel> noteQueryByNoteName(String text){
-        List<NoteModel> userModelList=new ArrayList<>();
+    public static  List<NoteBean> noteQueryByNoteName(String text){
+        List<NoteBean> userModelList=new ArrayList<>();
         SQLiteDatabase db = dbHelper.getWritableDatabase();
       //  "noteName LIKE '%"+text+"%'"
         Cursor cursor = db.query("NOTE",null,"noteName LIKE '%"+text+"%'",null,null,null,"",null);
@@ -128,8 +128,8 @@ public class SQLDBManger {
                 @SuppressLint("Range") String noteContent = cursor.getString(cursor.getColumnIndex("noteContent"));
                 @SuppressLint("Range")  String time = cursor.getString(cursor.getColumnIndex("time"));
                 @SuppressLint("Range") String id = String.valueOf(cursor.getInt(cursor.getColumnIndex("id")));
-                NoteModel userModel=new NoteModel();
-                userModel.setUid(id);
+                NoteBean userModel=new NoteBean();
+                userModel.setUid(Integer.valueOf(id));
                 userModel.setNoteName(noteName);
                 userModel.setNoteContent(noteContent);
                 userModel.setTime(time);
@@ -141,8 +141,8 @@ public class SQLDBManger {
     }
 
 
-    public static  List<NoteModel> getNoteList(){
-        List<NoteModel> userModelList=new ArrayList<>();
+    public static  List<NoteBean> getNoteList(){
+        List<NoteBean> userModelList=new ArrayList<>();
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         Cursor cursor = db.query("NOTE",null,null,null,null,null,"id desc",null);
         if (cursor.moveToFirst()){
@@ -151,8 +151,8 @@ public class SQLDBManger {
                 @SuppressLint("Range") String noteContent = cursor.getString(cursor.getColumnIndex("noteContent"));
                 @SuppressLint("Range")  String time = cursor.getString(cursor.getColumnIndex("time"));
                 @SuppressLint("Range") String id = String.valueOf(cursor.getInt(cursor.getColumnIndex("id")));
-                NoteModel userModel=new NoteModel();
-                userModel.setUid(id);
+                NoteBean userModel=new NoteBean();
+                userModel.setUid(Integer.valueOf(id));
                 userModel.setNoteName(noteName);
                 userModel.setNoteContent(noteContent);
                 userModel.setTime(time);
@@ -164,8 +164,8 @@ public class SQLDBManger {
     }
 
 
-    public static  NoteModel getNote(String ids){
-        NoteModel noteModel=new NoteModel();
+    public static NoteBean getNote(String ids){
+        NoteBean noteBean =new NoteBean();
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 //查询Book中所有的数据
         Cursor cursor = db.query("NOTE",null,"id='"+ids+"'",null,null,null,"",null);
@@ -175,14 +175,14 @@ public class SQLDBManger {
                 @SuppressLint("Range") String noteContent = cursor.getString(cursor.getColumnIndex("noteContent"));
                 @SuppressLint("Range")  String time = cursor.getString(cursor.getColumnIndex("time"));
                 @SuppressLint("Range") String id = String.valueOf(cursor.getInt(cursor.getColumnIndex("id")));
-                noteModel.setUid(id);
-                noteModel.setNoteName(noteName);
-                noteModel.setNoteContent(noteContent);
-                noteModel.setTime(time);
+                noteBean.setUid(Integer.valueOf(id));
+                noteBean.setNoteName(noteName);
+                noteBean.setNoteContent(noteContent);
+                noteBean.setTime(time);
             }while (cursor.moveToNext());
         }
         cursor.close();
-        return noteModel;
+        return noteBean;
     }
 
 

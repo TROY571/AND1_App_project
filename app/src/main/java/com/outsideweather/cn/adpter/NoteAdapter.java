@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 
 import com.outsideweather.cn.R;
-import com.outsideweather.cn.Model.NoteModel;
+import com.outsideweather.cn.Bean.NoteBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,23 +20,23 @@ import java.util.List;
  */
 public class NoteAdapter extends BaseAdapter {
     private Context context;
-    private List<NoteModel> noteModelList=new ArrayList<>();
+    private List<NoteBean> noteBeanList =new ArrayList<>();
 
-    public NoteAdapter(Context context, List<NoteModel> noteModelList){
+    public NoteAdapter(Context context, List<NoteBean> noteBeanList){
         this.context=context;
-        this.noteModelList=noteModelList;
+        this.noteBeanList = noteBeanList;
     }
 
 
 
     @Override
     public int getCount() {
-        return noteModelList.size();
+        return noteBeanList.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return noteModelList.get(i);
+        return noteBeanList.get(i);
     }
 
     @Override
@@ -57,8 +57,8 @@ public class NoteAdapter extends BaseAdapter {
         }else{
             holder = (ViewHolder) convertView.getTag();
         }
-        holder.title.setText(noteModelList.get(i).getNoteName());
-        holder.content.setText(noteModelList.get(i).getTime());
+        holder.title.setText(noteBeanList.get(i).getNoteName());
+        holder.content.setText(noteBeanList.get(i).getTime());
         return convertView;
     }
 

@@ -19,8 +19,6 @@ import java.util.List;
  * description：基类Activity 所有的必须集成它
  */
 public class BaseActivity extends AppCompatActivity {
-
-    private ShowTosetDialog mProxy;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,10 +27,7 @@ public class BaseActivity extends AppCompatActivity {
         StatusBarUtil.setLightStatusBar(this, true);
         SQLDBManger.createDb(this);
     }
-    public ShowTosetDialog getProxy(){
-        if(mProxy==null) mProxy=new ShowTosetDialog(this, null);
-        return mProxy;
-    }
+
     /**
      * 解决Fragment中的onActivityResult()方法无响应问题。
      */

@@ -12,14 +12,16 @@ import androidx.annotation.Nullable;
 
 import com.outsideweather.cn.R;
 import com.outsideweather.cn.base.BaseActivity;
-import com.outsideweather.cn.Model.NoteModel;
+import com.outsideweather.cn.Bean.NoteBean;
+import com.outsideweather.cn.dao.NoteDao;
+import com.outsideweather.cn.db.DBManger;
 import com.outsideweather.cn.manger.SQLDBManger;
 import com.ruffian.library.widget.RTextView;
 
 
 /**
  * email：
- * description：noote pad detail
+ * description：记事本详情
  */
 public class NoteDetailActivity extends BaseActivity {
     private RelativeLayout rlTitle;
@@ -44,8 +46,10 @@ public class NoteDetailActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note_detail);
         uid = getIntent().getStringExtra("uid");
-        NoteModel noteModel = SQLDBManger.getNote(uid);
-        initView(noteModel);
+    //  NoteBean noteBean = SQLDBManger.getNote(uid);
+        NoteDao noteDao = DBManger.getInstance(this).noteDao();
+        NoteBean noteBean= noteDao.noteQueryByUid(Integer.valueOf(uid));
+        initView(noteBean);
 
     }
 
@@ -54,17 +58,19 @@ public class NoteDetailActivity extends BaseActivity {
         super.onResume();
         try {
 
-            NoteModel noteModel = SQLDBManger.getNote(uid);
-            etTitle.setText(noteModel.getNoteName());
-            tvTime.setText(noteModel.getTime());
-            etContent.setText(noteModel.getNoteContent());
+           // NoteBean noteBean = SQLDBManger.getNote(uid);
+            NoteDao noteDao = DBManger.getInstance(this).noteDao();
+            NoteBean noteBean= noteDao.noteQueryByUid(Integer.valueOf(uid));
+            etTitle.setText(noteBean.getNoteName());
+            tvTime.setText(noteBean.getTime());
+            etContent.setText(noteBean.getNoteContent());
         } catch (Exception e) {
 
         }
 
     }
 
-    private void initView(NoteModel noteModel) {
+    private void initView(NoteBean noteBean) {
         rlTitle = (RelativeLayout) findViewById(R.id.rl_title);
         ivBack = (ImageView) findViewById(R.id.iv_back);
         ivBack.setOnClickListener(new View.OnClickListener() {
@@ -78,14 +84,14 @@ public class NoteDetailActivity extends BaseActivity {
         tvSub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               EditNoteActivity.statrEditNoteActivity(NoteDetailActivity.this, Integer.valueOf(noteModel.getUid()));
+               EditNoteActivity.statrEditNoteActivity(NoteDetailActivity.this, Integer.valueOf(noteBean.getUid()));
             }
         });
         etTitle = (TextView) findViewById(R.id.et_title);
         tvTime = (TextView) findViewById(R.id.tv_time);
         etContent = (TextView) findViewById(R.id.et_content);
-        etTitle.setText(noteModel.getNoteName());
-        tvTime.setText(noteModel.getTime());
-        etContent.setText(noteModel.getNoteContent());
+        etTitle.setText(noteBean.getNoteName());
+        tvTime.setText(noteBean.getTime());
+        etContent.setText(noteBean.getNoteContent());
     }
 }

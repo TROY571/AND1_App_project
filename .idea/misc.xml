@@ -7,33 +7,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/drawable/select_live_msg_bg.xml" value="0.229" />
-        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/activity_add_city.xml" value="0.25729166666666664" />
-        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/activity_add_note.xml" value="0.25729166666666664" />
-        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/activity_home.xml" value="0.25729166666666664" />
-        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/activity_main.xml" value="0.25729166666666664" />
-        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/activity_my_city.xml" value="0.25729166666666664" />
-        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/activity_note_detail.xml" value="0.25729166666666664" />
-        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/activity_note_edit.xml" value="0.25729166666666664" />
-        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/activity_search.xml" value="0.25729166666666664" />
-        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/activity_start.xml" value="0.25729166666666664" />
-        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/activity_weather_15.xml" value="0.25729166666666664" />
-        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/fragement1.xml" value="0.25729166666666664" />
-        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/fragement2.xml" value="0.25729166666666664" />
-        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/fragement3.xml" value="0.25729166666666664" />
-        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/fragement4.xml" value="0.25729166666666664" />
-        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/item_7_day.xml" value="0.25729166666666664" />
-        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/item_base_dialog.xml" value="0.25729166666666664" />
-        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/item_city.xml" value="0.25729166666666664" />
-        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/item_note.xml" value="0.25729166666666664" />
-        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/item_search_city.xml" value="0.25729166666666664" />
-        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/iten_24_hourly.xml" value="0.25729166666666664" />
-        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/weather_item_15.xml" value="0.25729166666666664" />
-        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/window_add.xml" value="0.25729166666666664" />
+        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/activity_app_start.xml" value="0.25729166666666664" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

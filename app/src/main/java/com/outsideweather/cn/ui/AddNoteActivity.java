@@ -16,15 +16,17 @@ import androidx.annotation.Nullable;
 
 import com.outsideweather.cn.R;
 import com.outsideweather.cn.base.BaseActivity;
-import com.outsideweather.cn.Model.NoteModel;
+import com.outsideweather.cn.Bean.NoteBean;
+import com.outsideweather.cn.dao.NoteDao;
+import com.outsideweather.cn.db.DBManger;
 import com.outsideweather.cn.manger.SQLDBManger;
-import com.outsideweather.cn.util.DateUtils;
+import com.outsideweather.cn.util.BaseDateUtils;
 import com.ruffian.library.widget.RTextView;
 
 
 /**
  * email：
- * description add note pad
+ * description 新增记事本
  */
 public class AddNoteActivity extends BaseActivity {
     private LinearLayout settingItemAutoPlay;
@@ -61,7 +63,7 @@ public class AddNoteActivity extends BaseActivity {
         ivTitle = (TextView) findViewById(R.id.iv_title);
         tvSub = (RTextView) findViewById(R.id.tv_sub);
         etTitle = (EditText) findViewById(R.id.et_title);
-        String times = DateUtils.getNowDateTime();
+        String times = BaseDateUtils.getNowDateTime();
         tvTime = (TextView) findViewById(R.id.tv_time);
         tvTime.setText(times);
         etContent = (EditText) findViewById(R.id.et_content);
@@ -76,8 +78,11 @@ public class AddNoteActivity extends BaseActivity {
                     Toast.makeText(AddNoteActivity.this,  getString(R.string.note_add_content_input), Toast.LENGTH_LONG).show();
                     return;
                 }
-                String times = DateUtils.getNowDateTime();
-                SQLDBManger.addNote(new NoteModel(etTitle.getText().toString(), etContent.getText().toString(), times));
+                String times = BaseDateUtils.getNowDateTime();
+                NoteDao noteDao= DBManger.getInstance(AddNoteActivity.this).noteDao();
+                noteDao.noteInsert(new NoteBean(etTitle.getText().toString(),etContent.getText().toString(),times));
+                finish();
+               // SQLDBManger.addNote(new NoteBean(etTitle.getText().toString(), etContent.getText().toString(), times));
                 finish();
             }
         });

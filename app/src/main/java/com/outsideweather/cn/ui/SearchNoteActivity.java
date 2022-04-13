@@ -15,10 +15,12 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
-import com.outsideweather.cn.Model.NoteModel;
+import com.outsideweather.cn.Bean.NoteBean;
 import com.outsideweather.cn.R;
 import com.outsideweather.cn.adpter.NoteAdapter;
 import com.outsideweather.cn.base.BaseActivity;
+import com.outsideweather.cn.dao.NoteDao;
+import com.outsideweather.cn.db.DBManger;
 import com.outsideweather.cn.manger.SQLDBManger;
 import com.ruffian.library.widget.RRelativeLayout;
 import com.ruffian.library.widget.RTextView;
@@ -28,6 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * email：
  * description：
  */
 public class SearchNoteActivity extends BaseActivity {
@@ -38,7 +41,7 @@ public class SearchNoteActivity extends BaseActivity {
     private ListView listView;
     private EditText etSearch;
     private NoteAdapter noteAdapter;
-    private List<NoteModel> noteModelList = new ArrayList<>();
+    private List<NoteBean> noteBeanList = new ArrayList<>();
     public static void startSearchNoteActivity(Context context) {
         Intent intent = new Intent(context, SearchNoteActivity.class);
         context.startActivity(intent);
@@ -72,9 +75,11 @@ public class SearchNoteActivity extends BaseActivity {
                     return;
                 }
 
-                noteModelList.clear();
-                noteModelList =  SQLDBManger.noteQueryByNoteName(etSearch.getText().toString());;
-                noteAdapter = new NoteAdapter(SearchNoteActivity.this, noteModelList);
+                noteBeanList.clear();
+             //   noteBeanList =  SQLDBManger.noteQueryByNoteName(etSearch.getText().toString());;
+                NoteDao noteDao = DBManger.getInstance(SearchNoteActivity.this).noteDao();
+                noteBeanList = noteDao.noteQueryByNoteName(etSearch.getText().toString());
+                noteAdapter = new NoteAdapter(SearchNoteActivity.this, noteBeanList);
                 listView.setAdapter(noteAdapter);
             }
         });
@@ -82,8 +87,8 @@ public class SearchNoteActivity extends BaseActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Log.i("TAG", " noteModelList.get(i).getNoteName()" + noteModelList.get(i).getNoteName());
-                NoteDetailActivity.statrNoteDetailActivity(SearchNoteActivity.this, Integer.valueOf(noteModelList.get(i).getUid()));
+                Log.i("TAG", " noteModelList.get(i).getNoteName()" + noteBeanList.get(i).getNoteName());
+                NoteDetailActivity.statrNoteDetailActivity(SearchNoteActivity.this, Integer.valueOf(noteBeanList.get(i).getUid()));
             }
         });
     }
