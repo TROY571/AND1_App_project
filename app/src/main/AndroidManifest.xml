@@ -38,7 +38,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.outsideweather.cn.ui.Weather15DayActivity"></activity>
         <activity android:name="com.outsideweather.cn.ui.WeatherCityActivity"></activity>
         <activity android:name="com.outsideweather.cn.ui.AddWeatherCityActivity"></activity>
         <activity android:name="com.outsideweather.cn.ui.AddNoteActivity"></activity>

@@ -14,7 +14,7 @@ import com.outsideweather.cn.util.StatusBarUtil;
 
 /**
  * email：
- * description：
+ * description：初始化Fragement
  */
 public class BaseFragement extends Fragment {
     @Override

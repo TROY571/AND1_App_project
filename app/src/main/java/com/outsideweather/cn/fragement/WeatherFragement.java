@@ -27,7 +27,6 @@ import com.outsideweather.cn.base.BaseLazyFragment;
 import com.outsideweather.cn.dialog.WeatherWindow;
 import com.outsideweather.cn.event.WeatherCityEvent;
 import com.outsideweather.cn.BasePermit.PermitUtil;
-import com.outsideweather.cn.ui.Weather15DayActivity;
 import com.outsideweather.cn.util.BaseDateUtils;
 import com.outsideweather.cn.util.StatusBarUtil;
 import com.outsideweather.cn.util.PublicTostUtil;
@@ -205,61 +204,50 @@ public class WeatherFragement extends BaseLazyFragment {
     }
 
     private void initView() {
-        rlTop = (RelativeLayout) view.findViewById(R.id.rlTop);
+        rlTop = view.findViewById(R.id.rlTop);//(RelativeLayout)
         RelativeLayout.LayoutParams lp2 = (RelativeLayout.LayoutParams) rlTop.getLayoutParams();
         lp2.topMargin = StatusBarUtil.getStatusBarHeight(getContext());
         rlTop.setLayoutParams(lp2);
-        ivRefresh = (ImageView) view.findViewById(R.id.ivRefresh);
-        ivTitle = (TextView) view.findViewById(R.id.iv_title);
-        ivAdd = (ImageView) view.findViewById(R.id.ivAdd);
-        tvTemperature = (TextView) view.findViewById(R.id.tv_temperature);
-        tvTempHeight = (TextView) view.findViewById(R.id.tv_temp_height);
-        tvTempLow = (TextView) view.findViewById(R.id.tv_temp_low);
-        tvOldTime = (TextView) view.findViewById(R.id.tv_old_time);
-        LyWord = (LinearLayout) view.findViewById(R.id.LyWord);
-        tvTempBoday = (TextView) view.findViewById(R.id.tv_temp_boday);
-        ivNewWhather = (ImageView) view.findViewById(R.id.ivNewWhather);
-        tvDay = (TextView) view.findViewById(R.id.tvDay);
-        tvMouth = (TextView) view.findViewById(R.id.tvMouth);
-        tvLocation = (TextView) view.findViewById(R.id.tvLocation);
-        tvWord = (TextView) view.findViewById(R.id.tvWord);
-        tvWordTranslate = (TextView) view.findViewById(R.id.tvWordTranslate);
-        rv = (RecyclerView) view.findViewById(R.id.rv);
-        tvMoreDaily = (TextView) view.findViewById(R.id.tv_more_daily);
-        tvMoreAir = (TextView) view.findViewById(R.id.tv_more_air);
-        rpbAqi = (RoundProgressBar) view.findViewById(R.id.rpb_aqi);
-        tvPm10 = (TextView) view.findViewById(R.id.tv_pm10);
-        tvPm25 = (TextView) view.findViewById(R.id.tv_pm25);
-        tvNo2 = (TextView) view.findViewById(R.id.tv_no2);
-        tvSo2 = (TextView) view.findViewById(R.id.tv_so2);
-        tvO3 = (TextView) view.findViewById(R.id.tv_o3);
-        tvCo = (TextView) view.findViewById(R.id.tv_co);
-        rlWind = (RelativeLayout) view.findViewById(R.id.rl_wind);
-        wwBig = (WhiteWindmills) view.findViewById(R.id.ww_big);
-        wwSmall = (WhiteWindmills) view.findViewById(R.id.ww_small);
-        tvWindDirection = (TextView) view.findViewById(R.id.tv_wind_direction);
-        tvWindPower = (TextView) view.findViewById(R.id.tv_wind_power);
-        tvMoreLifestyle = (TextView) view.findViewById(R.id.tv_more_lifestyle);
-        tvUv = (TextView) view.findViewById(R.id.tv_uv);
-        tvComf = (TextView) view.findViewById(R.id.tv_comf);
-        tvTrav = (TextView) view.findViewById(R.id.tv_trav);
-        tvSport = (TextView) view.findViewById(R.id.tv_sport);
-        tvCw = (TextView) view.findViewById(R.id.tv_cw);
-        tvAir = (TextView) view.findViewById(R.id.tv_air);
-        tvDrsg = (TextView) view.findViewById(R.id.tv_drsg);
-        tvFlu = (TextView) view.findViewById(R.id.tv_flu);
-        rvHourly = (RecyclerView) view.findViewById(R.id.rv_hourly);
+        ivRefresh = view.findViewById(R.id.ivRefresh);//(ImageView)
+        ivTitle = view.findViewById(R.id.iv_title);//(TextView)
+        ivAdd = view.findViewById(R.id.ivAdd);//(ImageView)
+        tvTemperature = view.findViewById(R.id.tv_temperature);//(TextView)
+        tvTempHeight = view.findViewById(R.id.tv_temp_height);//(TextView)
+        tvTempLow = view.findViewById(R.id.tv_temp_low);//(TextView)
+        tvOldTime = view.findViewById(R.id.tv_old_time);//(TextView)
+        LyWord = view.findViewById(R.id.LyWord);//(LinearLayout)
+        tvTempBoday = view.findViewById(R.id.tv_temp_boday);//(TextView)
+        ivNewWhather = view.findViewById(R.id.ivNewWhather);//(ImageView)
+        tvDay = view.findViewById(R.id.tvDay);//(TextView)
+        tvMouth = view.findViewById(R.id.tvMouth);//(TextView)
+        tvLocation = view.findViewById(R.id.tvLocation);//(TextView)
+        tvWord = view.findViewById(R.id.tvWord);//(TextView)
+        tvWordTranslate = view.findViewById(R.id.tvWordTranslate);//(TextView)
+        rv = view.findViewById(R.id.rv);//(RecyclerView)
+        tvMoreAir = view.findViewById(R.id.tv_more_air);//(TextView)
+        rpbAqi = view.findViewById(R.id.rpb_aqi);//(RoundProgressBar)
+        tvPm10 = view.findViewById(R.id.tv_pm10);//(TextView)
+        tvPm25 = view.findViewById(R.id.tv_pm25);//(TextView)
+        tvNo2 = view.findViewById(R.id.tv_no2);//(TextView)
+        tvSo2 = view.findViewById(R.id.tv_so2);//(TextView)
+        tvO3 = view.findViewById(R.id.tv_o3);//(TextView)
+        tvCo = view.findViewById(R.id.tv_co);//(TextView)
+        rlWind = view.findViewById(R.id.rl_wind);//(RelativeLayout)
+        wwBig = view.findViewById(R.id.ww_big);//(WhiteWindmills)
+        wwSmall = view.findViewById(R.id.ww_small);//(WhiteWindmills)
+        tvWindDirection = view.findViewById(R.id.tv_wind_direction);//(TextView)
+        tvWindPower = view.findViewById(R.id.tv_wind_power);//(TextView)
+        tvMoreLifestyle = view.findViewById(R.id.tv_more_lifestyle);//(TextView)
+        tvUv = view.findViewById(R.id.tv_uv);//(TextView)
+        tvComf = view.findViewById(R.id.tv_comf);//(TextView)
+        tvTrav = view.findViewById(R.id.tv_trav);//(TextView)
+        tvSport = view.findViewById(R.id.tv_sport);//(TextView)
+        tvCw = view.findViewById(R.id.tv_cw);//(TextView)
+        tvAir = view.findViewById(R.id.tv_air);//(TextView)
+        tvDrsg = view.findViewById(R.id.tv_drsg);//(TextView)
+        tvFlu = view.findViewById(R.id.tv_flu);//(TextView)
+        rvHourly = view.findViewById(R.id.rv_hourly);//(RecyclerView)
         LyWord.setVisibility(View.GONE);
-        tvMoreDaily.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (TextUtils.isEmpty(postionData)) {
-                    PublicTostUtil.showTost(getString(R.string.w_no_more));
-                } else {
-                    Weather15DayActivity.startWeather15Activity(getActivity(), city, postionData);
-                }
-            }
-        });
         ivRefresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

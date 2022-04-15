@@ -7,7 +7,31 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2435" />
+        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/drawable/bg_white.xml" value="0.2435" />
+        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/drawable/head_bg.xml" value="0.2435" />
+        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2435" />
+        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/drawable/rounded_corners.xml" value="0.2435" />
+        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/activity_add_note.xml" value="0.25729166666666664" />
+        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/activity_add_weather_city.xml" value="0.25729166666666664" />
         <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/activity_app_start.xml" value="0.25729166666666664" />
+        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/activity_home.xml" value="0.25729166666666664" />
+        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/activity_main.xml" value="0.25729166666666664" />
+        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/activity_note_detail.xml" value="0.25729166666666664" />
+        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/activity_note_edit.xml" value="0.25729166666666664" />
+        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/activity_search.xml" value="0.25729166666666664" />
+        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/activity_weather_15_day.xml" value="0.25729166666666664" />
+        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/activity_weather_city.xml" value="0.25729166666666664" />
+        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/item_24_hourly_weather.xml" value="0.25729166666666664" />
+        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/item_7_day.xml" value="0.25729166666666664" />
+        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/item_base_dialog.xml" value="0.25729166666666664" />
+        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/item_note.xml" value="0.25729166666666664" />
+        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/item_search_city.xml" value="0.25729166666666664" />
+        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/item_weather_city.xml" value="0.25729166666666664" />
+        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/tab1.xml" value="0.25729166666666664" />
+        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/tab2.xml" value="0.25729166666666664" />
+        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/weather_item_15_day.xml" value="0.25729166666666664" />
+        <entry key="..\:/Users/10211/AndroidStudioProjects/OutsideWeather/app/src/main/res/layout/window_add.xml" value="0.19972826086956522" />
       </map>
     </option>
   </component>

@@ -82,8 +82,6 @@ public class AddNoteActivity extends BaseActivity {
                 NoteDao noteDao= DBManger.getInstance(AddNoteActivity.this).noteDao();
                 noteDao.noteInsert(new NoteBean(etTitle.getText().toString(),etContent.getText().toString(),times));
                 finish();
-               // SQLDBManger.addNote(new NoteBean(etTitle.getText().toString(), etContent.getText().toString(), times));
-                finish();
             }
         });
 
