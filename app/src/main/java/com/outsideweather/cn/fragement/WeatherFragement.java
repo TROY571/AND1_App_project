@@ -224,7 +224,6 @@ public class WeatherFragement extends BaseLazyFragment {
         tvWord = view.findViewById(R.id.tvWord);//(TextView)
         tvWordTranslate = view.findViewById(R.id.tvWordTranslate);//(TextView)
         rv = view.findViewById(R.id.rv);//(RecyclerView)
-        tvMoreAir = view.findViewById(R.id.tv_more_air);//(TextView)
         rpbAqi = view.findViewById(R.id.rpb_aqi);//(RoundProgressBar)
         tvPm10 = view.findViewById(R.id.tv_pm10);//(TextView)
         tvPm25 = view.findViewById(R.id.tv_pm25);//(TextView)
