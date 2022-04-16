@@ -20,7 +20,7 @@
     <string name="note_cancer">Cancel</string>
     <string name="note_sure">Sure</string>
     <string name="w_time">Last updated:</string>
-    <string name="w_boday_hot">High</string>
+    <string name="w_boday_hot">Sensible Temp</string>
     <string name="w_more_w">More weather forecasts</string>
     <string name="w_air_w">Air quality</string>
     <string name="w_pollution">Pollution index</string>

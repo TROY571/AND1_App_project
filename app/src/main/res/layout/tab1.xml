@@ -92,13 +92,14 @@
                                 android:text="℃"
                                 android:textColor="@color/white"
                                 android:textSize="24sp" />
+
                             <TextView
                                 android:id="@+id/tv_temp_boday"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/tv_temperature"
-                                android:textColor="#FFF"
                                 android:text="222"
+                                android:textColor="#FFF"
                                 android:textSize="18dp" />
                             <LinearLayout
                                 android:layout_width="wrap_content"
