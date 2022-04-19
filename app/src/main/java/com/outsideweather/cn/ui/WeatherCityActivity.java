@@ -112,7 +112,6 @@ public class WeatherCityActivity extends BaseActivity {
                 new BaseDialog(WeatherCityActivity.this, getString(R.string.w_w15_18) , getString(R.string.note_ts), getString(R.string.note_cancer), getString(R.string.note_sure),  new BaseDialog.onSubClickBack() {
                     @Override
                     public void onClickBack(int status) {
-                    //  SQLDBManger.deleteCity(cityBeanArrayList.get(i).getId());
                         CityDao cityDao = DBManger.getInstance(WeatherCityActivity.this).cityDao();
                         cityDao.cityDelete(cityBeanArrayList.get(i));
                         cityBeanArrayList.remove(i);

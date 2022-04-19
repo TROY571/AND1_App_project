@@ -121,7 +121,7 @@ public class MianActivity extends BaseActivity {
 
             if (time - timeBack > 1000) {
                 timeBack = time;
-                Toast.makeText(this,"再按一次退出", Toast.LENGTH_LONG).show();
+                Toast.makeText(this,"Press once more to exit", Toast.LENGTH_LONG).show();
             } else {
                 finish();
                 System.gc();

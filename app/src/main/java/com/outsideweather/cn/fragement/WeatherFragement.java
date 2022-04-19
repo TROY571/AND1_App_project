@@ -472,9 +472,6 @@ public class WeatherFragement extends BaseLazyFragment {
                     rpbAqi.setSecondTextSize(64f);//第二行文本的字体大小
                     rpbAqi.setMinText("0");
                     rpbAqi.setMinTextColor(getActivity().getResources().getColor(R.color.arc_progress_color));
-
-                    //  tvAirInfo.setText("空气" + data.getCategory());
-
                     tvPm10.setText(nowBean.getPm10());//PM10
                     tvPm25.setText(nowBean.getPm2p5());//PM2.5
                     tvNo2.setText(nowBean.getNo2());//二氧化氮
