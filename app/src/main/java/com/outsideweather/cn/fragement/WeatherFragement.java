@@ -31,7 +31,6 @@ import com.outsideweather.cn.util.BaseDateUtils;
 import com.outsideweather.cn.util.StatusBarUtil;
 import com.outsideweather.cn.util.PublicTostUtil;
 import com.outsideweather.cn.util.HeFengWeatherUtil;
-import com.outsideweather.cn.view.RecyclerAnimation;
 import com.outsideweather.cn.view.RoundProgressBar;
 import com.outsideweather.cn.view.WhiteWindmills;
 import com.qweather.sdk.bean.air.AirNowBean;
@@ -393,8 +392,6 @@ public class WeatherFragement extends BaseLazyFragment {
                     dailyBeanList7.addAll(weatherDailyBean.getDaily());
                     //刷新列表
                     wheather7Adapter.notifyDataSetChanged();
-                    //底部动画展示
-                    RecyclerAnimation.runLayoutAnimation(rv);
                 } else if (weatherDailyBean.getCode() == Code.NO_DATA) {
                     PublicTostUtil.showTost(Code.NO_DATA.getTxt());
                 } else if (weatherDailyBean.getCode() == Code.NO_MORE_REQUESTS) {
@@ -428,8 +425,6 @@ public class WeatherFragement extends BaseLazyFragment {
                     hourlyBeans24.addAll(weatherHourlyBean.getHourly());
                     //刷新列表
                     hourly24Adapter.notifyDataSetChanged();
-                    //底部动画展示
-                    RecyclerAnimation.runLayoutAnimationRight(rvHourly);
                 } else if (weatherHourlyBean.getCode() == Code.NO_DATA) {
                     PublicTostUtil.showTost(Code.NO_DATA.getTxt());
                 } else if (weatherHourlyBean.getCode() == Code.NO_MORE_REQUESTS) {

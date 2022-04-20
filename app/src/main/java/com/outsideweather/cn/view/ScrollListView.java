@@ -1,4 +1,4 @@
-package com.outsideweather.cn.util;
+package com.outsideweather.cn.view;
 
 import android.content.Context;
 import android.util.AttributeSet;

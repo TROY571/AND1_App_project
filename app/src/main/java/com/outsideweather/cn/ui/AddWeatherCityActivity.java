@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.outsideweather.cn.dao.CityDao;
 import com.outsideweather.cn.db.DBManger;
-import com.outsideweather.cn.manger.SQLDBManger;
 import com.qweather.sdk.bean.base.Code;
 import com.qweather.sdk.bean.base.Lang;
 import com.qweather.sdk.bean.base.Range;
@@ -29,7 +28,6 @@ import com.outsideweather.cn.adpter.CitySearchAdapter;
 import com.outsideweather.cn.base.BaseActivity;
 import com.outsideweather.cn.event.WeatherCityEvent;
 import com.outsideweather.cn.util.PublicTostUtil;
-import com.outsideweather.cn.view.RecyclerAnimation;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -132,8 +130,6 @@ public class AddWeatherCityActivity extends BaseActivity {
                         locationBeanList.clear();
                     }
                     citySearchAdapter.notifyDataSetChanged();
-
-                    RecyclerAnimation. runLayoutAnimation(listview);
                 } else if (geoBean.getCode() == Code.NO_DATA) {
                     PublicTostUtil.showTost(Code.NO_DATA.getTxt());
                 } else if (geoBean.getCode() == Code.NO_MORE_REQUESTS) {

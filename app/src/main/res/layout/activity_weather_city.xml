@@ -42,7 +42,7 @@
         android:orientation="vertical">
 
 
-                <com.outsideweather.cn.util.ScrollListView
+                <com.outsideweather.cn.view.ScrollListView
                     android:layout_width="match_parent"
                     android:layout_margin="10dp"
                     android:divider="@null"
@@ -50,7 +50,7 @@
                     android:id="@+id/listview"
                     android:layout_height="match_parent">
 
-                </com.outsideweather.cn.util.ScrollListView>
+                </com.outsideweather.cn.view.ScrollListView>
                 <com.ruffian.library.widget.RTextView
                     android:layout_width="match_parent"
                     android:text="@string/note_add1"

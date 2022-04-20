@@ -3,8 +3,6 @@ package com.outsideweather.cn.base;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.outsideweather.cn.manger.SQLDBManger;
-import com.outsideweather.cn.util.ShowTosetDialog;
 import com.outsideweather.cn.util.StatusBarUtil;
 
 import androidx.annotation.Nullable;
@@ -25,7 +23,6 @@ public class BaseActivity extends AppCompatActivity {
         //系统导航栏和状态栏的设置
         StatusBarUtil.transparencyBar2(this);
         StatusBarUtil.setLightStatusBar(this, true);
-        SQLDBManger.createDb(this);
     }
 
     /**

@@ -13,16 +13,14 @@ import androidx.annotation.Nullable;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.outsideweather.cn.dao.CityDao;
-import com.outsideweather.cn.dao.NoteDao;
 import com.outsideweather.cn.db.DBManger;
-import com.outsideweather.cn.manger.SQLDBManger;
 import com.outsideweather.cn.Bean.CityBean;
 import com.outsideweather.cn.R;
 import com.outsideweather.cn.adpter.CityAdapter;
 import com.outsideweather.cn.base.BaseActivity;
 import com.outsideweather.cn.dialog.BaseDialog;
 import com.outsideweather.cn.event.WeatherCityEvent;
-import com.outsideweather.cn.util.ScrollListView;
+import com.outsideweather.cn.view.ScrollListView;
 
 import org.greenrobot.eventbus.EventBus;
 

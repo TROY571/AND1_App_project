@@ -15,7 +15,6 @@ import com.outsideweather.cn.base.BaseActivity;
 import com.outsideweather.cn.Bean.NoteBean;
 import com.outsideweather.cn.dao.NoteDao;
 import com.outsideweather.cn.db.DBManger;
-import com.outsideweather.cn.manger.SQLDBManger;
 import com.ruffian.library.widget.RTextView;
 
 

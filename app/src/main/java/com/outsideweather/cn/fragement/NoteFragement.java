@@ -20,7 +20,6 @@ import com.outsideweather.cn.dao.NoteDao;
 import com.outsideweather.cn.db.DBManger;
 import com.outsideweather.cn.dialog.BaseDialog;
 import com.outsideweather.cn.Bean.NoteBean;
-import com.outsideweather.cn.manger.SQLDBManger;
 import com.outsideweather.cn.ui.AddNoteActivity;
 import com.outsideweather.cn.ui.NoteDetailActivity;
 import com.outsideweather.cn.ui.SearchNoteActivity;
