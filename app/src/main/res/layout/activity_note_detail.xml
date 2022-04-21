@@ -31,21 +31,20 @@
         </TextView>
 
         <com.ruffian.library.widget.RTextView
-            android:layout_width="70dp"
-            android:text="@string/note_edit"
-            android:gravity="center"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="25dp"
-            app:corner_radius="44dp"
             android:id="@+id/tv_sub"
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:textSize="13dp"
+            android:layout_marginRight="25dp"
+            android:gravity="center"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
+            android:text="@string/note_edit"
+            android:textSize="13dp"
             app:background_normal="@color/teal_200"
-            app:text_color_normal="@color/white"
-            android:layout_height="30dp">
-        </com.ruffian.library.widget.RTextView>
+            app:corner_radius="44dp"
+            app:text_color_normal="@color/white"></com.ruffian.library.widget.RTextView>
     </RelativeLayout>
 
     <ScrollView
