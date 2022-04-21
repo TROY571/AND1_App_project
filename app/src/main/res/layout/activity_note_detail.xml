@@ -74,7 +74,7 @@
                 android:layout_width="match_parent"
                 android:textSize="13dp"
                 android:textColor="@color/app_main_color"
-                android:text="22.00"
+                android:text=""
                 android:id="@+id/tv_time"
                 android:layout_marginTop="10dp"
                 android:layout_height="wrap_content">
