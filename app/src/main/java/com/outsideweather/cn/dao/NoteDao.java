@@ -27,8 +27,6 @@ public interface NoteDao {
     @Query("select * from  NoteBean " )
     List<NoteBean> noteQueryAll();
 
-//    @Query("select * from NoteBean where name = :name")
-//    List<NoteBean> noteQueryByNoteName(String name);
     @Query("select * from NoteBean where name like '%'||:name ||'%' ")
     List<NoteBean> noteQueryByNoteName(String name);
 
