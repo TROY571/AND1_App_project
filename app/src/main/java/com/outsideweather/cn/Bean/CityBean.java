@@ -12,12 +12,13 @@ import androidx.room.PrimaryKey;
  */
 @Entity
 public class CityBean {
+    @PrimaryKey(autoGenerate = true)
+    private int id;
     @ColumnInfo(name = "cityName")
     private String cityName;//选中城市名字
     @ColumnInfo(name = "cityPostion")
     private String cityPostion;//和风城市经纬度 x,x
-    @PrimaryKey(autoGenerate = true)
-    private int id;
+
 
     public int getId() {
         return id;
