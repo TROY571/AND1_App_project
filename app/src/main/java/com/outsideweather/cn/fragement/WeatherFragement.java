@@ -69,14 +69,11 @@ public class WeatherFragement extends BaseLazyFragment {
     private TextView tvTempHeight;
     private TextView tvTempLow;
     private TextView tvOldTime;
-    private LinearLayout LyWord;
     private TextView tvTempBoday;
     private ImageView ivNewWhather;
     private TextView tvDay;
     private TextView tvMouth;
     private TextView tvLocation;
-    private TextView tvWord;
-    private TextView tvWordTranslate;//location.getLongitude() + "," + location.getLatitude()
     private String Plongitude;
     private String Platitude;
     private String postionData;
@@ -214,14 +211,11 @@ public class WeatherFragement extends BaseLazyFragment {
         tvTempHeight = view.findViewById(R.id.tv_temp_height);//(TextView)
         tvTempLow = view.findViewById(R.id.tv_temp_low);//(TextView)
         tvOldTime = view.findViewById(R.id.tv_old_time);//(TextView)
-        LyWord = view.findViewById(R.id.LyWord);//(LinearLayout)
         tvTempBoday = view.findViewById(R.id.tv_temp_boday);//(TextView)
         ivNewWhather = view.findViewById(R.id.ivNewWhather);//(ImageView)
         tvDay = view.findViewById(R.id.tvDay);//(TextView)
         tvMouth = view.findViewById(R.id.tvMouth);//(TextView)
         tvLocation = view.findViewById(R.id.tvLocation);//(TextView)
-        tvWord = view.findViewById(R.id.tvWord);//(TextView)
-        tvWordTranslate = view.findViewById(R.id.tvWordTranslate);//(TextView)
         rv = view.findViewById(R.id.rv);//(RecyclerView)
         rpbAqi = view.findViewById(R.id.rpb_aqi);//(RoundProgressBar)
         tvPm10 = view.findViewById(R.id.tv_pm10);//(TextView)
@@ -245,7 +239,6 @@ public class WeatherFragement extends BaseLazyFragment {
         tvDrsg = view.findViewById(R.id.tv_drsg);//(TextView)
         tvFlu = view.findViewById(R.id.tv_flu);//(TextView)
         rvHourly = view.findViewById(R.id.rv_hourly);//(RecyclerView)
-        LyWord.setVisibility(View.GONE);
         ivRefresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -485,13 +478,8 @@ public class WeatherFragement extends BaseLazyFragment {
                 } else {
                     PublicTostUtil.showTost(getString(R.string.err_msg));
                 }
-
             }
         });
-
     }
-
-
-
 }
 

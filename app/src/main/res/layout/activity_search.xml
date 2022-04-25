@@ -35,14 +35,15 @@
             android:layout_height="32dp">
 
             <EditText
+                android:id="@+id/etSearch"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@null"
-                android:id="@+id/etSearch"
                 android:drawableLeft="@mipmap/icon_home_sousuo_normal"
                 android:drawablePadding="6dp"
                 android:gravity="center_vertical"
                 android:hint="@string/note_search"
+                android:textColorHint="@color/gray_tabtext"
                 android:textColor="#333333"
                 android:textSize="13dp"></EditText>
         </com.ruffian.library.widget.RRelativeLayout>
