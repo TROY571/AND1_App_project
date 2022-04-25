@@ -116,7 +116,7 @@ public class WeatherFragement extends BaseLazyFragment {
     @Override
     public View onCreateView(LayoutInflater inf, ViewGroup root, Bundle state) {
         if (view == null) {
-            view = inf.inflate(R.layout.tab1, root, false);
+            view = inf.inflate(R.layout.weather_detail, root, false);
             StatusBarUtil.setLightStatusBar(getActivity(), false);
             initView();
             EventBus.getDefault().register(this);

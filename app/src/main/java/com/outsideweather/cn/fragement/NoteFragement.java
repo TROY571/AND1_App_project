@@ -47,7 +47,7 @@ public class NoteFragement extends BaseLazyFragment {
     @Override
     public View onCreateView(LayoutInflater inf, ViewGroup root, Bundle state) {
         if (view == null) {
-            view = inf.inflate(R.layout.tab2, root, false);
+            view = inf.inflate(R.layout.note_list, root, false);
             StatusBarUtil.setLightStatusBar(getActivity(), true);
             initView();
         }
