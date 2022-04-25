@@ -107,7 +107,7 @@ public class WeatherCityActivity extends BaseActivity {
         listview.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-                new BaseDialog(WeatherCityActivity.this, getString(R.string.w_w15_18) , getString(R.string.note_ts), getString(R.string.note_cancer), getString(R.string.note_sure),  new BaseDialog.onSubClickBack() {
+                new BaseDialog(WeatherCityActivity.this, getString(R.string.w_w15_18) , getString(R.string.note_tips), getString(R.string.note_cancer), getString(R.string.note_sure),  new BaseDialog.onSubClickBack() {
                     @Override
                     public void onClickBack(int status) {
                         CityDao cityDao = DBManger.getInstance(WeatherCityActivity.this).cityDao();

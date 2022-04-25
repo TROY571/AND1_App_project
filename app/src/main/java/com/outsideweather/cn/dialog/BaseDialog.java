@@ -69,7 +69,7 @@ public class BaseDialog extends Dialog {
     public void initView() {
         tvCouponContent = (TextView) findViewById(R.id.tvCouponContent);
         tvCouponContent.setText(content);
-        tvCancer = (TextView) findViewById(R.id.tvCancer);
+        tvCancer = (TextView) findViewById(R.id.tvCancel);
         tvCancer.setText(leftCount);
         tvCancer.setOnClickListener(p->{
             dismiss();

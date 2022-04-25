@@ -155,7 +155,7 @@
                                         android:layout_width="wrap_content"
                                         android:textSize="15dp"
                                         android:text="2020/3/2"
-                                        android:id="@+id/tvMouth"
+                                        android:id="@+id/tvDate"
                                         android:layout_gravity="center_horizontal"
                                         android:textColor="#ffffff"
                                         android:layout_height="wrap_content">

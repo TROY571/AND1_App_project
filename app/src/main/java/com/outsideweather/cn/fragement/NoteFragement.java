@@ -102,7 +102,7 @@ public class NoteFragement extends BaseLazyFragment {
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-                new BaseDialog(getActivity(), getString(R.string.note_delete), getString(R.string.note_ts), getString(R.string.note_cancer), getString(R.string.note_sure), new BaseDialog.onSubClickBack() {
+                new BaseDialog(getActivity(), getString(R.string.note_delete), getString(R.string.note_tips), getString(R.string.note_cancer), getString(R.string.note_sure), new BaseDialog.onSubClickBack() {
                     @Override
                     public void onClickBack(int status) {
                         if (status == 1) {

@@ -16,7 +16,7 @@
     <string name="note_serch">Search</string>
     <string name="err_msg">dear! There is something wrong with the data. Please try again</string>
     <string name="note_delete">Are you sure you want to delete this record?</string>
-    <string name="note_ts">Tips</string>
+    <string name="note_tips">Tips</string>
     <string name="note_cancer">Cancel</string>
     <string name="note_sure">Sure</string>
     <string name="w_time">Last updated:</string>
