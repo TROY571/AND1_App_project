@@ -31,7 +31,6 @@ public class Weather7DayAdapter extends BaseQuickAdapter< WeatherDailyBean.Daily
 
     @Override
     protected void convert(BaseViewHolder helper, WeatherDailyBean.DailyBean item) {
-        //日期DateUtils.dateSplitPlus(item.getFxDate())
         helper.setText(R.id.tv_date,  BaseDateUtils.Week(item.getFxDate()))
                 //最高温
                 .setText(R.id.tv_temp_height, item.getTempMax() + "℃")

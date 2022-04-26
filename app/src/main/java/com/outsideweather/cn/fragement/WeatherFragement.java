@@ -69,10 +69,10 @@ public class WeatherFragement extends BaseLazyFragment {
     private TextView tvTempHeight;
     private TextView tvTempLow;
     private TextView tvOldTime;
-    private TextView tvTempBoday;
+    private TextView tvTempBody;
     private ImageView ivNewWhather;
     private TextView tvDay;
-    private TextView tvMouth;
+    private TextView tvDate;
     private TextView tvLocation;
     private String Plongitude;
     private String Platitude;
@@ -178,7 +178,7 @@ public class WeatherFragement extends BaseLazyFragment {
         postionData = event.searchKey;
         city = event.name;
         ivTitle.setText(event.name);
-        getNewWeather(postionData);
+        getNowWeather(postionData);
         get7DayWeather(postionData);
         get24HoursWheather(postionData);
         getAirNows(postionData);
@@ -202,10 +202,10 @@ public class WeatherFragement extends BaseLazyFragment {
         tvTempHeight = view.findViewById(R.id.tv_temp_height);//(TextView)
         tvTempLow = view.findViewById(R.id.tv_temp_low);//(TextView)
         tvOldTime = view.findViewById(R.id.tv_old_time);//(TextView)
-        tvTempBoday = view.findViewById(R.id.tv_temp_boday);//(TextView)
+        tvTempBody = view.findViewById(R.id.tv_temp_boday);//(TextView)
         ivNewWhather = view.findViewById(R.id.ivNewWhather);//(ImageView)
         tvDay = view.findViewById(R.id.tvDay);//(TextView)
-        tvMouth = view.findViewById(R.id.tvDate);//(TextView)
+        tvDate = view.findViewById(R.id.tvDate);//(TextView)
         tvLocation = view.findViewById(R.id.tvLocation);//(TextView)
         rv = view.findViewById(R.id.rv);//(RecyclerView)
         rpbAqi = view.findViewById(R.id.rpb_aqi);//(RoundProgressBar)
@@ -225,8 +225,6 @@ public class WeatherFragement extends BaseLazyFragment {
             @Override
             public void onClick(View view) {
                 initData();//刷新天气 当前定位的天气
-                //isFirstLoc=true;
-                // startLocation();
             }
         });
         ivAdd.setOnClickListener(new View.OnClickListener() {
@@ -287,7 +285,7 @@ public class WeatherFragement extends BaseLazyFragment {
                     city = location.getCity();
                 }
 
-                //定位到了立马获取天气
+                //获取天气
                 postionData = location.getLongitude() + "," + location.getLatitude();
                 tvLocation.setText(city);
                 ivTitle.setText(city);
@@ -298,16 +296,15 @@ public class WeatherFragement extends BaseLazyFragment {
     }
 
     public void initData() {
-        getNewWeather(postionData);
+        getNowWeather(postionData);
         get7DayWeather(postionData);
         get24HoursWheather(postionData);
         getAirNows(postionData);
-        // getDayIndices(postionData);
     }
 
     //获取当前天气 根据经纬度获取天气
-    public void getNewWeather(String lotion) {
-        QWeather.getWeatherNow(getActivity(), lotion, Lang.EN, Unit.METRIC, new QWeather.OnResultWeatherNowListener() {
+    public void getNowWeather(String location) {
+        QWeather.getWeatherNow(getActivity(), location, Lang.EN, Unit.METRIC, new QWeather.OnResultWeatherNowListener() {
             @Override
             public void onError(Throwable throwable) {
 
@@ -319,10 +316,10 @@ public class WeatherFragement extends BaseLazyFragment {
                     WeatherNowBean.NowBaseBean baseBean = weatherNowBean.getNow();
                     String time = BaseDateUtils.updateTime(baseBean.getObsTime());//截去前面的字符，保留后面所有的字符，就剩下 22:00
                     tvOldTime.setText(getString(R.string.w_time) + HeFengWeatherUtil.showTimeInfo(time) + time);
-                    tvTempBoday.setText(getString(R.string.w_boday_hot) + baseBean.getFeelsLike() + "℃");
+                    tvTempBody.setText(getString(R.string.w_boday_hot) + baseBean.getFeelsLike() + "℃");
                     tvTemperature.setText(baseBean.getTemp());
                     tvDay.setText(BaseDateUtils.getWeekOfDate(new Date()));//星期
-                    tvMouth.setText(BaseDateUtils.getNowDate());
+                    tvDate.setText(BaseDateUtils.getNowDate());
 
                     int code = Integer.parseInt(baseBean.getIcon());
                     HeFengWeatherUtil.changeIcon(ivNewWhather, code);
@@ -361,11 +358,11 @@ public class WeatherFragement extends BaseLazyFragment {
                     WeatherDailyBean.DailyBean dailyBean = weatherDailyBean.getDaily().get(0);
                     tvTempHeight.setText(dailyBean.getTempMax() + "℃");
                     tvTempLow.setText(" / " + dailyBean.getTempMin() + "℃");
-                    //添加数据之前先清除
+                    //clear old data
                     dailyBeanList7.clear();
-                    //添加数据
+                    //add new data
                     dailyBeanList7.addAll(weatherDailyBean.getDaily());
-                    //刷新列表
+                    //refresh
                     wheather7Adapter.notifyDataSetChanged();
                 } else if (weatherDailyBean.getCode() == Code.NO_DATA) {
                     PublicTostUtil.showTost(Code.NO_DATA.getTxt());
@@ -418,7 +415,7 @@ public class WeatherFragement extends BaseLazyFragment {
 
     //今天天气状况
     public void getAirNows(String location) {
-        QWeather.getAirNow(getActivity(), location, Lang.ZH_HANS, new QWeather.OnResultAirNowListener() {
+        QWeather.getAirNow(getActivity(), location, Lang.EN, new QWeather.OnResultAirNowListener() {
             @Override
             public void onError(Throwable throwable) {
 
@@ -436,7 +433,7 @@ public class WeatherFragement extends BaseLazyFragment {
                     rpbAqi.setProgress(Float.valueOf(nowBean.getAqi()));//当前进度
                     rpbAqi.setArcBgColor(getActivity().getResources().getColor(R.color.arc_bg_color));//圆弧的颜色
                     rpbAqi.setProgressColor(getActivity().getResources().getColor(R.color.arc_progress_color));//进度圆弧的颜色
-                    rpbAqi.setFirstText(nowBean.getCategory());//空气质量描述 取值范围：优，良，轻度污染，中度污染，重度污染，严重污染
+                    rpbAqi.setFirstText(nowBean.getCategory());//空气质量描述
                     rpbAqi.setFirstTextSize(44f);//第一行文本的字体大小
                     rpbAqi.setSecondText(nowBean.getAqi());//空气质量值
                     rpbAqi.setSecondTextSize(64f);//第二行文本的字体大小
