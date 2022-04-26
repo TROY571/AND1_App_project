@@ -93,15 +93,6 @@ public class WeatherFragement extends BaseLazyFragment {
     private WhiteWindmills wwSmall;
     private TextView tvWindDirection;
     private TextView tvWindPower;
-    private TextView tvMoreLifestyle;
-    private TextView tvUv;
-    private TextView tvComf;
-    private TextView tvTrav;
-    private TextView tvSport;
-    private TextView tvCw;
-    private TextView tvAir;
-    private TextView tvDrsg;
-    private TextView tvFlu;
     private List<WeatherDailyBean.DailyBean> dailyBeanList7 = new ArrayList<>();
     private Weather7DayAdapter wheather7Adapter;
     private RecyclerView rvHourly;
@@ -229,15 +220,6 @@ public class WeatherFragement extends BaseLazyFragment {
         wwSmall = view.findViewById(R.id.ww_small);//(WhiteWindmills)
         tvWindDirection = view.findViewById(R.id.tv_wind_direction);//(TextView)
         tvWindPower = view.findViewById(R.id.tv_wind_power);//(TextView)
-        tvMoreLifestyle = view.findViewById(R.id.tv_more_lifestyle);//(TextView)
-        tvUv = view.findViewById(R.id.tv_uv);//(TextView)
-        tvComf = view.findViewById(R.id.tv_comf);//(TextView)
-        tvTrav = view.findViewById(R.id.tv_trav);//(TextView)
-        tvSport = view.findViewById(R.id.tv_sport);//(TextView)
-        tvCw = view.findViewById(R.id.tv_cw);//(TextView)
-        tvAir = view.findViewById(R.id.tv_air);//(TextView)
-        tvDrsg = view.findViewById(R.id.tv_drsg);//(TextView)
-        tvFlu = view.findViewById(R.id.tv_flu);//(TextView)
         rvHourly = view.findViewById(R.id.rv_hourly);//(RecyclerView)
         ivRefresh.setOnClickListener(new View.OnClickListener() {
             @Override

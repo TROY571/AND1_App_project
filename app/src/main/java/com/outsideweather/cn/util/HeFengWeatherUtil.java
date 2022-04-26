@@ -9,10 +9,6 @@ import com.outsideweather.cn.base.BaseAplication;
 
 
 public class HeFengWeatherUtil {
-
-
-
-
     /**
      * 根据传入的状态码修改填入的天气图标
      *

@@ -18,6 +18,11 @@ import java.util.List;
  *天气预报数据列表适配器
  *
  *
+ *
+ *
+ *
+ *
+ *
  */
 public class Weather7DayAdapter extends BaseQuickAdapter< WeatherDailyBean.DailyBean, BaseViewHolder> {
     public Weather7DayAdapter(@Nullable List< WeatherDailyBean.DailyBean> data) {

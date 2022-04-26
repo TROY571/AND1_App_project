@@ -203,7 +203,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:gravity="right"
-                                android:text="最近更新时间:"
+                                android:text="Last updated:"
                                 android:textColor="@color/white"
                                 android:textSize="12dp" />
                         </LinearLayout>
@@ -536,117 +536,7 @@
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
-
-                <!--用于展示生活指数的布局-->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:visibility="gone"
-                    android:padding="20dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical">
-                        <!--标题-->
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="生活建议"
-                            android:textColor="@color/white"
-                            android:textSize="18sp" />
-
-                        <!--更多生活建议-->
-                        <TextView
-                            android:id="@+id/tv_more_lifestyle"
-                            android:layout_width="wrap_content"
-                            android:visibility="gone"
-                            android:layout_height="wrap_content"
-                            android:drawableRight="@mipmap/icon_more_blue"
-                            android:padding="4dp"
-                            android:text="更多"
-                            android:textColor="@color/blue_more"
-                            android:textSize="14dp" />
-                    </LinearLayout>
-                    <!--紫外线-->
-                    <TextView
-                        android:id="@+id/tv_uv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:text="紫外线："
-                        android:textColor="@color/white"
-                        android:textSize="14dp" />
-                    <!--舒适度-->
-                    <TextView
-                        android:id="@+id/tv_comf"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:text="舒适度："
-                        android:textColor="@color/white"
-                        android:textSize="14dp" />
-                    <!--旅游指数-->
-                    <TextView
-                        android:id="@+id/tv_trav"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:text="旅游指数："
-                        android:textColor="@color/white"
-                        android:textSize="14dp" />
-                    <!--运动指数-->
-                    <TextView
-                        android:id="@+id/tv_sport"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:text="运动指数："
-                        android:textColor="@color/white"
-                        android:textSize="14dp" />
-                    <!--洗车指数-->
-                    <TextView
-                        android:id="@+id/tv_cw"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:text="洗车指数："
-                        android:textColor="@color/white"
-                        android:textSize="14dp" />
-                    <!--空气指数-->
-                    <TextView
-                        android:id="@+id/tv_air"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:text="空气指数："
-                        android:textColor="@color/white"
-                        android:textSize="14dp" />
-                    <!--穿衣指数-->
-                    <TextView
-                        android:id="@+id/tv_drsg"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:text="穿衣指数："
-                        android:textColor="@color/white"
-                        android:textSize="14dp" />
-                    <!--感冒指数-->
-                    <TextView
-                        android:id="@+id/tv_flu"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:text="感冒指数："
-                        android:textColor="@color/white"
-                        android:textSize="14dp" />
-                </LinearLayout>
             </LinearLayout>
-
         </androidx.core.widget.NestedScrollView>
     </RelativeLayout>
-
-
 </RelativeLayout>
