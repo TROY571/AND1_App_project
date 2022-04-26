@@ -18,7 +18,7 @@ import com.outsideweather.cn.R;
 import com.outsideweather.cn.base.BaseActivity;
 import com.outsideweather.cn.Bean.NoteBean;
 import com.outsideweather.cn.dao.NoteDao;
-import com.outsideweather.cn.db.DBManger;
+import com.outsideweather.cn.db.AppDataBaseDB;
 import com.outsideweather.cn.util.BaseDateUtils;
 import com.ruffian.library.widget.RTextView;
 
@@ -78,7 +78,7 @@ public class AddNoteActivity extends BaseActivity {
                     return;
                 }
                 String times = BaseDateUtils.getNowDateTime();
-                NoteDao noteDao= DBManger.getInstance(AddNoteActivity.this).noteDao();
+                NoteDao noteDao= AppDataBaseDB.getInstance(AddNoteActivity.this).noteDao();
                 noteDao.noteInsert(new NoteBean(etTitle.getText().toString(),etContent.getText().toString(),times));
                 finish();
             }

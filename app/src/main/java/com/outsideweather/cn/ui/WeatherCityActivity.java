@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.outsideweather.cn.dao.CityDao;
-import com.outsideweather.cn.db.DBManger;
+import com.outsideweather.cn.db.AppDataBaseDB;
 import com.outsideweather.cn.Bean.CityBean;
 import com.outsideweather.cn.R;
 import com.outsideweather.cn.adpter.CityAdapter;
@@ -88,7 +88,7 @@ public class WeatherCityActivity extends BaseActivity {
     }
 
     public void initData() {
-        CityDao cityDao = DBManger.getInstance(this).cityDao();
+        CityDao cityDao = AppDataBaseDB.getInstance(this).cityDao();
         cityBeanArrayList = cityDao.cityQueryAll();
      //   cityBeanArrayList = SQLDBManger.getCityList();
         initListData();
@@ -110,7 +110,7 @@ public class WeatherCityActivity extends BaseActivity {
                 new BaseDialog(WeatherCityActivity.this, getString(R.string.w_w15_18) , getString(R.string.note_tips), getString(R.string.note_cancer), getString(R.string.note_sure),  new BaseDialog.onSubClickBack() {
                     @Override
                     public void onClickBack(int status) {
-                        CityDao cityDao = DBManger.getInstance(WeatherCityActivity.this).cityDao();
+                        CityDao cityDao = AppDataBaseDB.getInstance(WeatherCityActivity.this).cityDao();
                         cityDao.cityDelete(cityBeanArrayList.get(i));
                         cityBeanArrayList.remove(i);
                         myCityAdapter.notifyDataSetChanged();

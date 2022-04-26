@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.outsideweather.cn.dao.CityDao;
-import com.outsideweather.cn.db.DBManger;
+import com.outsideweather.cn.db.AppDataBaseDB;
 import com.qweather.sdk.bean.base.Code;
 import com.qweather.sdk.bean.base.Lang;
 import com.qweather.sdk.bean.base.Range;
@@ -92,7 +92,7 @@ public class AddWeatherCityActivity extends BaseActivity {
         citySearchAdapter.setOnItemChildClickListener((adapter, view, position) -> {
             //发送消息
             String key=locationBeanList.get(position).getLon()+","+locationBeanList.get(position).getLat();
-            CityDao cityDao = DBManger.getInstance(this).cityDao();
+            CityDao cityDao = AppDataBaseDB.getInstance(this).cityDao();
             //cityBeanArrayList = cityDao.cityQueryAll();
         //    CityBean cityBean =    SQLDBManger.getCity(locationBeanList.get(position).getName());
         CityBean cityBean = cityDao.cityQueryBycityName(locationBeanList.get(position).getName());
@@ -105,7 +105,6 @@ public class AddWeatherCityActivity extends BaseActivity {
                 CityBean cityBean1 =new CityBean();
                 cityBean1.setCityPostion(key);
                 cityBean1.setCityName(locationBeanList.get(position).getName());
-              //  SQLDBManger.addCity(cityBean1);
                 cityDao.cityInsert(cityBean1);
                 EventBus.getDefault().post(new WeatherCityEvent(1,locationBeanList.get(position).getName(),
                         key));//Adm2 代表市

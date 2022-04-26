@@ -17,7 +17,7 @@ import com.outsideweather.cn.R;
 import com.outsideweather.cn.adpter.NoteAdapter;
 import com.outsideweather.cn.base.BaseLazyFragment;
 import com.outsideweather.cn.dao.NoteDao;
-import com.outsideweather.cn.db.DBManger;
+import com.outsideweather.cn.db.AppDataBaseDB;
 import com.outsideweather.cn.dialog.BaseDialog;
 import com.outsideweather.cn.Bean.NoteBean;
 import com.outsideweather.cn.ui.AddNoteActivity;
@@ -106,9 +106,7 @@ public class NoteFragement extends BaseLazyFragment {
                     @Override
                     public void onClickBack(int status) {
                         if (status == 1) {
-                          //  SQLDBManger.deleteNote(Integer.valueOf(noteBeanList.get(i).getUid()));
-                           // Toast.makeText(getActivity(), "删除成功", Toast.LENGTH_LONG).show();
-                            NoteDao noteDao = DBManger.getInstance(getActivity()).noteDao();
+                            NoteDao noteDao = AppDataBaseDB.getInstance(getActivity()).noteDao();
                             noteDao.noteDelete(noteBeanList.get(i));
                             noteBeanList.remove(i);
                             noteAdapter.notifyDataSetChanged();
@@ -133,7 +131,7 @@ public class NoteFragement extends BaseLazyFragment {
     public void initData(){
         noteBeanList.clear();
      //   noteBeanList = SQLDBManger.getNoteList();
-        NoteDao noteDao = DBManger.getInstance(getActivity()).noteDao();
+        NoteDao noteDao = AppDataBaseDB.getInstance(getActivity()).noteDao();
         noteBeanList = noteDao.noteQueryAll();
         noteAdapter = new NoteAdapter(getActivity(), noteBeanList);
         listView.setAdapter(noteAdapter);

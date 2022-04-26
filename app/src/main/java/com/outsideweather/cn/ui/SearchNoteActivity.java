@@ -20,7 +20,7 @@ import com.outsideweather.cn.R;
 import com.outsideweather.cn.adpter.NoteAdapter;
 import com.outsideweather.cn.base.BaseActivity;
 import com.outsideweather.cn.dao.NoteDao;
-import com.outsideweather.cn.db.DBManger;
+import com.outsideweather.cn.db.AppDataBaseDB;
 import com.ruffian.library.widget.RRelativeLayout;
 import com.ruffian.library.widget.RTextView;
 
@@ -75,7 +75,7 @@ public class SearchNoteActivity extends BaseActivity {
                 }
 
                 noteBeanList.clear();
-                NoteDao noteDao = DBManger.getInstance(SearchNoteActivity.this).noteDao();
+                NoteDao noteDao = AppDataBaseDB.getInstance(SearchNoteActivity.this).noteDao();
                 noteBeanList = noteDao.noteQueryByNoteName(etSearch.getText().toString());
                 noteAdapter = new NoteAdapter(SearchNoteActivity.this, noteBeanList);
                 listView.setAdapter(noteAdapter);

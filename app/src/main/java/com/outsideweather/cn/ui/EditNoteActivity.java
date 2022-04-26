@@ -18,7 +18,7 @@ import com.outsideweather.cn.R;
 import com.outsideweather.cn.base.BaseActivity;
 import com.outsideweather.cn.Bean.NoteBean;
 import com.outsideweather.cn.dao.NoteDao;
-import com.outsideweather.cn.db.DBManger;
+import com.outsideweather.cn.db.AppDataBaseDB;
 import com.ruffian.library.widget.RTextView;
 
 
@@ -54,7 +54,7 @@ public class EditNoteActivity extends BaseActivity {
         setContentView(R.layout.activity_note_edit);
         uid = getIntent().getStringExtra("uid");
       //  noteBean = SQLDBManger.getNote(uid);
-        NoteDao noteDao = DBManger.getInstance(this).noteDao();
+        NoteDao noteDao = AppDataBaseDB.getInstance(this).noteDao();
         noteBean = noteDao.noteQueryByUid(Integer.valueOf(uid));
         initView();
     }
@@ -88,7 +88,7 @@ public class EditNoteActivity extends BaseActivity {
                     Toast.makeText(EditNoteActivity.this,  getString(R.string.note_add_content_input), Toast.LENGTH_LONG).show();
                     return;
                 }
-                NoteDao noteDao= DBManger.getInstance(EditNoteActivity.this).noteDao();
+                NoteDao noteDao= AppDataBaseDB.getInstance(EditNoteActivity.this).noteDao();
                 noteBean.setNoteContent(etContent.getText().toString());
                 noteBean.setNoteName(etTitle.getText().toString());
                // SQLDBManger.updateNote(noteBean);
