@@ -439,12 +439,12 @@ public class WeatherFragement extends BaseLazyFragment {
                     rpbAqi.setSecondTextSize(64f);//第二行文本的字体大小
                     rpbAqi.setMinText("0");
                     rpbAqi.setMinTextColor(getActivity().getResources().getColor(R.color.arc_progress_color));
-                    tvPm10.setText(nowBean.getPm10());//PM10
-                    tvPm25.setText(nowBean.getPm2p5());//PM2.5
-                    tvNo2.setText(nowBean.getNo2());//二氧化氮
-                    tvSo2.setText(nowBean.getSo2());//二氧化硫
-                    tvO3.setText(nowBean.getO3());//臭氧
-                    tvCo.setText(nowBean.getCo());//一氧化碳
+                    tvPm10.setText(nowBean.getPm10() + " μg/m³");//PM10
+                    tvPm25.setText(nowBean.getPm2p5() + " μg/m³");//PM2.5
+                    tvNo2.setText(nowBean.getNo2() + " mg/m³");//二氧化氮
+                    tvSo2.setText(nowBean.getSo2() + " mg/m³");//二氧化硫
+                    tvO3.setText(nowBean.getO3() + " mg/m³");//臭氧
+                    tvCo.setText(nowBean.getCo() + " mg/m³");//一氧化碳
 
                 } else if (airNowBean.getCode() == Code.NO_DATA) {
                     PublicTostUtil.showTost(Code.NO_DATA.getTxt());
