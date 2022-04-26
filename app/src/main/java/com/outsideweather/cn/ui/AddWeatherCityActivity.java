@@ -93,9 +93,9 @@ public class AddWeatherCityActivity extends BaseActivity {
             //发送消息
             String key=locationBeanList.get(position).getLon()+","+locationBeanList.get(position).getLat();
             CityDao cityDao = AppDataBaseDB.getInstance(this).cityDao();
-            //cityBeanArrayList = cityDao.cityQueryAll();
+            //cityBeanArrayList = cityDao.getAllCities();
         //    CityBean cityBean =    SQLDBManger.getCity(locationBeanList.get(position).getName());
-        CityBean cityBean = cityDao.cityQueryBycityName(locationBeanList.get(position).getName());
+        CityBean cityBean = cityDao.getCityByName(locationBeanList.get(position).getName());
             if(cityBean!=null&&!TextUtils.isEmpty(cityBean.getCityName())){
                 EventBus.getDefault().post(new WeatherCityEvent(1,locationBeanList.get(position).getName(),
                         key));//Adm2 代表市
@@ -105,7 +105,7 @@ public class AddWeatherCityActivity extends BaseActivity {
                 CityBean cityBean1 =new CityBean();
                 cityBean1.setCityPostion(key);
                 cityBean1.setCityName(locationBeanList.get(position).getName());
-                cityDao.cityInsert(cityBean1);
+                cityDao.insertCity(cityBean1);
                 EventBus.getDefault().post(new WeatherCityEvent(1,locationBeanList.get(position).getName(),
                         key));//Adm2 代表市
                 WeatherCityActivity.getInstance().finish();

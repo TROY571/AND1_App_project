@@ -79,7 +79,7 @@ public class AddNoteActivity extends BaseActivity {
                 }
                 String times = BaseDateUtils.getNowDateTime();
                 NoteDao noteDao= AppDataBaseDB.getInstance(AddNoteActivity.this).noteDao();
-                noteDao.noteInsert(new NoteBean(etTitle.getText().toString(),etContent.getText().toString(),times));
+                noteDao.insertNote(new NoteBean(etTitle.getText().toString(),etContent.getText().toString(),times));
                 finish();
             }
         });

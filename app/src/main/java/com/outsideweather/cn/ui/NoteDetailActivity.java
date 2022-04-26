@@ -47,7 +47,7 @@ public class NoteDetailActivity extends BaseActivity {
         uid = getIntent().getStringExtra("uid");
     //  NoteBean noteBean = SQLDBManger.getNote(uid);
         NoteDao noteDao = AppDataBaseDB.getInstance(this).noteDao();
-        NoteBean noteBean= noteDao.noteQueryByUid(Integer.valueOf(uid));
+        NoteBean noteBean= noteDao.getNoteByUid(Integer.valueOf(uid));
         initView(noteBean);
 
     }
@@ -57,7 +57,7 @@ public class NoteDetailActivity extends BaseActivity {
         super.onResume();
         try {
             NoteDao noteDao = AppDataBaseDB.getInstance(this).noteDao();
-            NoteBean noteBean= noteDao.noteQueryByUid(Integer.valueOf(uid));
+            NoteBean noteBean= noteDao.getNoteByUid(Integer.valueOf(uid));
             etTitle.setText(noteBean.getNoteName());
             tvTime.setText(noteBean.getTime());
             etContent.setText(noteBean.getNoteContent());

@@ -14,7 +14,6 @@ public abstract class BaseLazyFragment extends BaseFragement {
     public void onResume() {
         super.onResume();
         if (!isPrepared) {
-            loadData();
             isPrepared = true;
         }
     }
@@ -25,5 +24,4 @@ public abstract class BaseLazyFragment extends BaseFragement {
         isPrepared = false;
     }
 
-    protected abstract void loadData();
 }

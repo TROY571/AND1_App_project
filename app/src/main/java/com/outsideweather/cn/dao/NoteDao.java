@@ -1,5 +1,6 @@
 package com.outsideweather.cn.dao;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -15,21 +16,21 @@ import java.util.List;
 public interface NoteDao {
 
     @Insert
-    void noteInsert(NoteBean...noteModels);
+    void insertNote(NoteBean...noteModels);
 
     @Delete
-    void noteDelete(NoteBean noteModel);
+    void deleteNote(NoteBean noteModel);
 
 
     @Update
-    void noteUpdate(NoteBean noteModel);
+    void updateNote(NoteBean noteModel);
 
     @Query("SELECT * FROM  NoteBean" )
-    List<NoteBean> noteQueryAll();
+    List<NoteBean> getAllNotes();
 
     @Query("SELECT * FROM NoteBean WHERE name LIKE '%'||:name ||'%' ")
-    List<NoteBean> noteQueryByNoteName(String name);
+    List<NoteBean> getNotesByName(String name);
 
     @Query("SELECT * FROM NoteBean WHERE uid = :uid")
-    NoteBean  noteQueryByUid(int uid);
+    NoteBean getNoteByUid(int uid);
 }

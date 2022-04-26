@@ -124,11 +124,6 @@ public class WeatherFragement extends BaseLazyFragment {
     }
 
     @Override
-    protected void loadData() {
-
-    }
-
-    @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
         if (hidden) {

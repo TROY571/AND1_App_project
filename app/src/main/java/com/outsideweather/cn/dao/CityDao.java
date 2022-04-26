@@ -16,18 +16,18 @@ import java.util.List;
 @Dao
 public interface CityDao {
     @Insert
-    void cityInsert(CityBean...cityBeans);
+    void insertCity(CityBean...cityBeans);
 
     @Delete
-    void cityDelete(CityBean cityBean);
+    void deleteCity(CityBean cityBean);
 
 
     @Update
-    void cityUpdate(CityBean cityBean);
+    void updateCity(CityBean cityBean);
 
     @Query("SELECT * FROM  CityBean " )
-    List<CityBean> cityQueryAll();
+    List<CityBean> getAllCities();
 
     @Query("SELECT * FROM CityBean WHERE cityName = :name")
-   CityBean cityQueryBycityName(String name);
+   CityBean getCityByName(String name);
 }

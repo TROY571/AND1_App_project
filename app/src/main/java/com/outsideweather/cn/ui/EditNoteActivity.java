@@ -55,7 +55,7 @@ public class EditNoteActivity extends BaseActivity {
         uid = getIntent().getStringExtra("uid");
       //  noteBean = SQLDBManger.getNote(uid);
         NoteDao noteDao = AppDataBaseDB.getInstance(this).noteDao();
-        noteBean = noteDao.noteQueryByUid(Integer.valueOf(uid));
+        noteBean = noteDao.getNoteByUid(Integer.valueOf(uid));
         initView();
     }
 
@@ -91,8 +91,7 @@ public class EditNoteActivity extends BaseActivity {
                 NoteDao noteDao= AppDataBaseDB.getInstance(EditNoteActivity.this).noteDao();
                 noteBean.setNoteContent(etContent.getText().toString());
                 noteBean.setNoteName(etTitle.getText().toString());
-               // SQLDBManger.updateNote(noteBean);
-                noteDao.noteUpdate(noteBean);
+                noteDao.updateNote(noteBean);
                 finish();
             }
         });

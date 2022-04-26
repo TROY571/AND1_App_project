@@ -59,11 +59,6 @@ public class NoteFragement extends BaseLazyFragment {
     }
 
     @Override
-    protected void loadData() {
-
-    }
-
-    @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
         if (hidden) {
@@ -107,7 +102,7 @@ public class NoteFragement extends BaseLazyFragment {
                     public void onClickBack(int status) {
                         if (status == 1) {
                             NoteDao noteDao = AppDataBaseDB.getInstance(getActivity()).noteDao();
-                            noteDao.noteDelete(noteBeanList.get(i));
+                            noteDao.deleteNote(noteBeanList.get(i));
                             noteBeanList.remove(i);
                             noteAdapter.notifyDataSetChanged();
                         }
@@ -130,9 +125,8 @@ public class NoteFragement extends BaseLazyFragment {
 
     public void initData(){
         noteBeanList.clear();
-     //   noteBeanList = SQLDBManger.getNoteList();
         NoteDao noteDao = AppDataBaseDB.getInstance(getActivity()).noteDao();
-        noteBeanList = noteDao.noteQueryAll();
+        noteBeanList = noteDao.getAllNotes();
         noteAdapter = new NoteAdapter(getActivity(), noteBeanList);
         listView.setAdapter(noteAdapter);
     }

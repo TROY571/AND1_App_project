@@ -89,7 +89,7 @@ public class WeatherCityActivity extends BaseActivity {
 
     public void initData() {
         CityDao cityDao = AppDataBaseDB.getInstance(this).cityDao();
-        cityBeanArrayList = cityDao.cityQueryAll();
+        cityBeanArrayList = cityDao.getAllCities();
      //   cityBeanArrayList = SQLDBManger.getCityList();
         initListData();
     }
@@ -111,7 +111,7 @@ public class WeatherCityActivity extends BaseActivity {
                     @Override
                     public void onClickBack(int status) {
                         CityDao cityDao = AppDataBaseDB.getInstance(WeatherCityActivity.this).cityDao();
-                        cityDao.cityDelete(cityBeanArrayList.get(i));
+                        cityDao.deleteCity(cityBeanArrayList.get(i));
                         cityBeanArrayList.remove(i);
                         myCityAdapter.notifyDataSetChanged();
                     }

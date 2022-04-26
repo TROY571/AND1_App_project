@@ -76,7 +76,7 @@ public class SearchNoteActivity extends BaseActivity {
 
                 noteBeanList.clear();
                 NoteDao noteDao = AppDataBaseDB.getInstance(SearchNoteActivity.this).noteDao();
-                noteBeanList = noteDao.noteQueryByNoteName(etSearch.getText().toString());
+                noteBeanList = noteDao.getNotesByName(etSearch.getText().toString());
                 noteAdapter = new NoteAdapter(SearchNoteActivity.this, noteBeanList);
                 listView.setAdapter(noteAdapter);
             }
