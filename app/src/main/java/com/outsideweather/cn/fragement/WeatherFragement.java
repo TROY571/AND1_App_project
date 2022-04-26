@@ -93,6 +93,7 @@ public class WeatherFragement extends BaseLazyFragment {
     private WhiteWindmills wwSmall;
     private TextView tvWindDirection;
     private TextView tvWindPower;
+    private TextView tvWindSpeed;
     private List<WeatherDailyBean.DailyBean> dailyBeanList7 = new ArrayList<>();
     private Weather7DayAdapter wheather7Adapter;
     private RecyclerView rvHourly;
@@ -215,6 +216,7 @@ public class WeatherFragement extends BaseLazyFragment {
         wwSmall = view.findViewById(R.id.ww_small);//(WhiteWindmills)
         tvWindDirection = view.findViewById(R.id.tv_wind_direction);//(TextView)
         tvWindPower = view.findViewById(R.id.tv_wind_power);//(TextView)
+        tvWindSpeed = view.findViewById(R.id.tv_wind_speed);//(TextView)
         rvHourly = view.findViewById(R.id.rv_hourly);//(RecyclerView)
         ivRefresh.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -319,8 +321,9 @@ public class WeatherFragement extends BaseLazyFragment {
                     int code = Integer.parseInt(baseBean.getIcon());
                     HeFengWeatherUtil.changeIcon(ivNewWhather, code);
                     HeFengWeatherUtil.changeBgIcon(ivImage, code);
-                    tvWindDirection.setText(getString(R.string.w_wind_x) + "     " + baseBean.getWindDir());//风向
-                    tvWindPower.setText(getString(R.string.w_wind_l) + "     " + baseBean.getWindScale());//风力
+                    tvWindDirection.setText(getString(R.string.w_wind_x) + ":     " + baseBean.getWindDir());//风向
+                    tvWindPower.setText(getString(R.string.w_wind_l) + ":     " + baseBean.getWindScale());//风力
+                    tvWindSpeed.setText(getString(R.string.w_wind_s) + ":     " + baseBean.getWindSpeed());//风速
                     wwBig.startRotate();//大风车开始转动
                     wwSmall.startRotate();//小风车开始转动
                 } else if (weatherNowBean.getCode() == Code.NO_DATA) {

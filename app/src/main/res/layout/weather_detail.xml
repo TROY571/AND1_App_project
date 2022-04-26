@@ -533,6 +533,14 @@
                                 android:layout_marginTop="20dp"
                                 android:textColor="@color/white"
                                 android:textSize="14dp" />
+                            <!--风速-->
+                            <TextView
+                                android:id="@+id/tv_wind_speed"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:textColor="@color/white"
+                                android:textSize="14dp" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>

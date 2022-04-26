@@ -67,4 +67,5 @@
     <string name="w_w15_18">Are you sure to delete this city?</string>
     <string name="w_w15_19">Switch City</string>
     <string name="note_save">Save</string>
+    <string name="w_wind_s">Wind speed</string>
 </resources>
