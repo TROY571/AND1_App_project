@@ -24,12 +24,12 @@ public interface NoteDao {
     @Update
     void noteUpdate(NoteBean noteModel);
 
-    @Query("select * from  NoteBean " )
+    @Query("SELECT * FROM  NoteBean" )
     List<NoteBean> noteQueryAll();
 
-    @Query("select * from NoteBean where name like '%'||:name ||'%' ")
+    @Query("SELECT * FROM NoteBean WHERE name LIKE '%'||:name ||'%' ")
     List<NoteBean> noteQueryByNoteName(String name);
 
-    @Query("select * from NoteBean where uid = :uid")
+    @Query("SELECT * FROM NoteBean WHERE uid = :uid")
     NoteBean  noteQueryByUid(int uid);
 }

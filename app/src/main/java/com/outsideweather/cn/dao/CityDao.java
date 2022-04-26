@@ -25,9 +25,9 @@ public interface CityDao {
     @Update
     void cityUpdate(CityBean cityBean);
 
-    @Query("select * from  CityBean " )
+    @Query("SELECT * FROM  CityBean " )
     List<CityBean> cityQueryAll();
 
-    @Query("select * from CityBean where cityName = :name")
+    @Query("SELECT * FROM CityBean WHERE cityName = :name")
    CityBean cityQueryBycityName(String name);
 }
