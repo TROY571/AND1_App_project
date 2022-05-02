@@ -13,5 +13,5 @@ Functional Requirements:
 
 NonFunctional Requirements:
 
-1.The app will not show Ads. 
-2.The app will not collect user information.
+1.The app will not show Ads. ✓
+2.The app will not collect user information.✓
