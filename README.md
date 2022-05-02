@@ -6,10 +6,10 @@ In modern times, people rely heavily on the weather forecast to make sure their 
 
 Functional Requirements:
 
-1.The app will provide weather forecast information.
-2.The app will change different wallpapers according to the current weather.
-3.The app will allow you to add, edit and delete notepad.
-4.The app will allow you to add monitoring cities manually.
+1.The app will provide weather forecast information.✓
+2.The app will change different wallpapers according to the current weather.✓
+3.The app will allow you to add, edit and delete notepad.✓
+4.The app will allow you to add monitoring cities manually.✓
 
 NonFunctional Requirements:
 
