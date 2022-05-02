@@ -79,8 +79,6 @@ public class WeatherFragement extends BaseLazyFragment {
     private String postionData;
     private String city;
     private RecyclerView rv;
-    private TextView tvMoreDaily;
-    private TextView tvMoreAir;
     private RoundProgressBar rpbAqi;
     private TextView tvPm10;
     private TextView tvPm25;
@@ -88,7 +86,6 @@ public class WeatherFragement extends BaseLazyFragment {
     private TextView tvSo2;
     private TextView tvO3;
     private TextView tvCo;
-    private RelativeLayout rlWind;
     private WhiteWindmills wwBig;
     private WhiteWindmills wwSmall;
     private TextView tvWindDirection;
@@ -211,7 +208,6 @@ public class WeatherFragement extends BaseLazyFragment {
         tvSo2 = view.findViewById(R.id.tv_so2);//(TextView)
         tvO3 = view.findViewById(R.id.tv_o3);//(TextView)
         tvCo = view.findViewById(R.id.tv_co);//(TextView)
-        rlWind = view.findViewById(R.id.rl_wind);//(RelativeLayout)
         wwBig = view.findViewById(R.id.ww_big);//(WhiteWindmills)
         wwSmall = view.findViewById(R.id.ww_small);//(WhiteWindmills)
         tvWindDirection = view.findViewById(R.id.tv_wind_direction);//(TextView)
@@ -322,8 +318,9 @@ public class WeatherFragement extends BaseLazyFragment {
                     HeFengWeatherUtil.changeIcon(ivNewWhather, code);
                     HeFengWeatherUtil.changeBgIcon(ivImage, code);
                     tvWindDirection.setText(getString(R.string.w_wind_x) + ":     " + baseBean.getWindDir());//风向
-                    tvWindPower.setText(getString(R.string.w_wind_l) + ":     " + baseBean.getWindScale());//风力
-                    tvWindSpeed.setText(getString(R.string.w_wind_s) + ":     " + baseBean.getWindSpeed());//风速
+                    tvWindPower.setText(getString(R.string.w_wind_l) + ":     Level " + baseBean.getWindScale());//风力
+                    tvWindSpeed.setText(getString(R.string.w_wind_s) + ":     " + baseBean.getWindSpeed() + " km/h");//风速
+
                     wwBig.startRotate();//大风车开始转动
                     wwSmall.startRotate();//小风车开始转动
                 } else if (weatherNowBean.getCode() == Code.NO_DATA) {
