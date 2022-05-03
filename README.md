@@ -15,3 +15,7 @@ NonFunctional Requirements:
 
 1.The app will not show Ads. ✓
 2.The app will not collect user information.✓
+
+
+Otherone's Code:
+WhiteWindmills: https://cloud.tencent.com/developer/article/1705313
