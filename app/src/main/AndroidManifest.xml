@@ -31,7 +31,8 @@
         android:roundIcon="@mipmap/iconstart"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name="com.outsideweather.cn.ui.MianActivity">
+        <activity android:name="com.outsideweather.cn.ui.MianActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
