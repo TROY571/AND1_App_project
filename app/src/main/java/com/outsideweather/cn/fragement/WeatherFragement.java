@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -217,7 +218,8 @@ public class WeatherFragement extends BaseLazyFragment {
         ivRefresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                initData();//刷新天气 当前定位的天气
+                initData();
+                Toast.makeText(getContext(),"Refresh Information",Toast.LENGTH_SHORT).show();//刷新天气 当前定位的天气
             }
         });
         ivAdd.setOnClickListener(new View.OnClickListener() {
