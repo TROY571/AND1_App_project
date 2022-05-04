@@ -27,7 +27,6 @@ import com.outsideweather.cn.base.BaseAplication;
 import com.outsideweather.cn.base.BaseLazyFragment;
 import com.outsideweather.cn.dialog.WeatherWindow;
 import com.outsideweather.cn.event.WeatherCityEvent;
-import com.outsideweather.cn.BasePermit.PermitUtil;
 import com.outsideweather.cn.util.BaseDateUtils;
 import com.outsideweather.cn.util.StatusBarUtil;
 import com.outsideweather.cn.util.PublicTostUtil;
@@ -110,7 +109,6 @@ public class WeatherFragement extends BaseLazyFragment {
             StatusBarUtil.setLightStatusBar(getActivity(), false);
             initView();
             EventBus.getDefault().register(this);
-            PermitUtil.checkPerms(getActivity(), null);
             LocationClient.setAgreePrivacy(true);
             SDKInitializer.initialize(BaseAplication.getContext());
             startLocation();
