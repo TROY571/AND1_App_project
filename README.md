@@ -19,3 +19,5 @@ NonFunctional Requirements:
 
 Otherone's Code:
 WhiteWindmills: https://cloud.tencent.com/developer/article/1705313
+
+Demo Link: https://youtu.be/ASK2B0vlqq8
