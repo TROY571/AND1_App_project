@@ -1,4 +1,4 @@
-package com.outsideweather.cn.ui;
+package com.outsideweather.cn.activity;
 
 import android.content.Context;
 import android.content.Intent;

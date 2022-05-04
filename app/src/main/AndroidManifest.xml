@@ -31,7 +31,7 @@
         android:roundIcon="@mipmap/iconstart"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name="com.outsideweather.cn.ui.MianActivity"
+        <activity android:name="com.outsideweather.cn.activity.MianActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,12 +39,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.outsideweather.cn.ui.WeatherCityActivity"></activity>
-        <activity android:name="com.outsideweather.cn.ui.AddWeatherCityActivity"></activity>
-        <activity android:name="com.outsideweather.cn.ui.AddNoteActivity"></activity>
-        <activity android:name="com.outsideweather.cn.ui.NoteDetailActivity"></activity>
-        <activity android:name="com.outsideweather.cn.ui.EditNoteActivity"></activity>
-        <activity android:name="com.outsideweather.cn.ui.SearchNoteActivity"></activity>
+        <activity android:name="com.outsideweather.cn.activity.WeatherCityActivity"></activity>
+        <activity android:name="com.outsideweather.cn.activity.AddWeatherCityActivity"></activity>
+        <activity android:name="com.outsideweather.cn.activity.AddNoteActivity"></activity>
+        <activity android:name="com.outsideweather.cn.activity.NoteDetailActivity"></activity>
+        <activity android:name="com.outsideweather.cn.activity.EditNoteActivity"></activity>
+        <activity android:name="com.outsideweather.cn.activity.SearchNoteActivity"></activity>
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="dGBpeIRSqlGa4Y61ZQe4hX6uGaVxgLHh" />

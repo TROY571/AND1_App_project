@@ -1,4 +1,4 @@
-package com.outsideweather.cn.ui;
+package com.outsideweather.cn.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,8 +6,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
