@@ -108,7 +108,7 @@
                                 android:layout_marginTop="6dp">
 
                                 <TextView
-                                    android:id="@+id/tv_temp_height"
+                                    android:id="@+id/tv_temp_high"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:textColor="#FFF"

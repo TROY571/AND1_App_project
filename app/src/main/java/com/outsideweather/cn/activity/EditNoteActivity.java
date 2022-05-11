@@ -24,7 +24,7 @@ import com.ruffian.library.widget.RTextView;
 
 /**
  * email：
- * description：编辑记事本
+ * description：EditNoteActivity
  */
 public class EditNoteActivity extends BaseActivity {
     private LinearLayout lyImage;
@@ -53,7 +53,6 @@ public class EditNoteActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note_edit);
         uid = getIntent().getStringExtra("uid");
-      //  noteBean = SQLDBManger.getNote(uid);
         NoteDao noteDao = AppDataBaseDB.getInstance(this).noteDao();
         noteBean = noteDao.getNoteByUid(Integer.valueOf(uid));
         initView();

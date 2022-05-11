@@ -25,7 +25,7 @@ import com.ruffian.library.widget.RTextView;
 
 /**
  * email：
- * description 新增记事本
+ * description AddNoteActivity
  */
 public class AddNoteActivity extends BaseActivity {
     private LinearLayout settingItemAutoPlay;
@@ -41,7 +41,6 @@ public class AddNoteActivity extends BaseActivity {
     private EditText etTitle;
     private TextView tvTime;
     private EditText etContent;
-    private String picUr="";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

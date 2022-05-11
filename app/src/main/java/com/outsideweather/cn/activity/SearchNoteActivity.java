@@ -30,7 +30,7 @@ import java.util.List;
 
 /**
  * email：
- * description：
+ * description：SearchNoteActivity
  */
 public class SearchNoteActivity extends BaseActivity {
     private RelativeLayout rlTitle;

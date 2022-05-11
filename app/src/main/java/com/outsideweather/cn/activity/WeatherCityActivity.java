@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * 日期：2022/4/2
  * email：
- * description：我收藏的城市
+ * description：favourite cities
  */
 public class WeatherCityActivity extends BaseActivity {
     public static void startMyCityActivity(Context context) {
@@ -90,7 +90,6 @@ public class WeatherCityActivity extends BaseActivity {
     public void initData() {
         CityDao cityDao = AppDataBaseDB.getInstance(this).cityDao();
         cityBeanArrayList = cityDao.getAllCities();
-     //   cityBeanArrayList = SQLDBManger.getCityList();
         initListData();
     }
     public void initListData(){

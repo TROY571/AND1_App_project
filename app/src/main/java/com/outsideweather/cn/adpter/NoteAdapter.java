@@ -16,7 +16,7 @@ import java.util.List;
 
 /**
  * email：
- * description：笔记适配器
+ * description：
  */
 public class NoteAdapter extends BaseAdapter {
     private Context context;

@@ -20,7 +20,7 @@ import com.ruffian.library.widget.RTextView;
 
 /**
  * email：
- * description：记事本详情
+ * description：NoteDetailActivity
  */
 public class NoteDetailActivity extends BaseActivity {
     private RelativeLayout rlTitle;
@@ -45,7 +45,6 @@ public class NoteDetailActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note_detail);
         uid = getIntent().getStringExtra("uid");
-    //  NoteBean noteBean = SQLDBManger.getNote(uid);
         NoteDao noteDao = AppDataBaseDB.getInstance(this).noteDao();
         NoteBean noteBean= noteDao.getNoteByUid(Integer.valueOf(uid));
         initView(noteBean);

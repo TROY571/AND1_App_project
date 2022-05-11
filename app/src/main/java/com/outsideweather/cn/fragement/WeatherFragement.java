@@ -191,7 +191,7 @@ public class WeatherFragement extends BaseLazyFragment {
         ivTitle = view.findViewById(R.id.iv_title);//(TextView)
         ivAdd = view.findViewById(R.id.ivAdd);//(ImageView)
         tvTemperature = view.findViewById(R.id.tv_temperature);//(TextView)
-        tvTempHeight = view.findViewById(R.id.tv_temp_height);//(TextView)
+        tvTempHeight = view.findViewById(R.id.tv_temp_high);//(TextView)
         tvTempLow = view.findViewById(R.id.tv_temp_low);//(TextView)
         tvOldTime = view.findViewById(R.id.tv_old_time);//(TextView)
         tvTempBody = view.findViewById(R.id.tv_temp_boday);//(TextView)

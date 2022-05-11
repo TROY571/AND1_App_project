@@ -36,9 +36,8 @@ import java.util.List;
 
 
 /**
- * 日期：2022/4/2
  * email：
- * description：
+ * description：AddWeatherCityActivity
  */
 public class AddWeatherCityActivity extends BaseActivity {
     private RelativeLayout rlTitle;
@@ -90,15 +89,13 @@ public class AddWeatherCityActivity extends BaseActivity {
         listview.setAdapter(citySearchAdapter);
 
         citySearchAdapter.setOnItemChildClickListener((adapter, view, position) -> {
-            //发送消息
+            //send message
             String key=locationBeanList.get(position).getLon()+","+locationBeanList.get(position).getLat();
             CityDao cityDao = AppDataBaseDB.getInstance(this).cityDao();
-            //cityBeanArrayList = cityDao.getAllCities();
-        //    CityBean cityBean =    SQLDBManger.getCity(locationBeanList.get(position).getName());
         CityBean cityBean = cityDao.getCityByName(locationBeanList.get(position).getName());
             if(cityBean!=null&&!TextUtils.isEmpty(cityBean.getCityName())){
                 EventBus.getDefault().post(new WeatherCityEvent(1,locationBeanList.get(position).getName(),
-                        key));//Adm2 代表市
+                        key));//Adm2 means city
                 WeatherCityActivity.getInstance().finish();
                 finish();
             }else{
@@ -107,7 +104,7 @@ public class AddWeatherCityActivity extends BaseActivity {
                 cityBean1.setCityName(locationBeanList.get(position).getName());
                 cityDao.insertCity(cityBean1);
                 EventBus.getDefault().post(new WeatherCityEvent(1,locationBeanList.get(position).getName(),
-                        key));//Adm2 代表市
+                        key));//Adm2 means city
                 WeatherCityActivity.getInstance().finish();
                 finish();
             }

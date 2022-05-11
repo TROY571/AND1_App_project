@@ -17,9 +17,8 @@ public class CitySearchAdapter extends BaseQuickAdapter<GeoBean.LocationBean, Ba
 
     @Override
     protected void convert(BaseViewHolder helper, GeoBean.LocationBean item) {
-        //城市名称
+        //set city name
         helper.setText(R.id.tv_city_name, item.getName());
-        //绑定点击事件
         helper.addOnClickListener(R.id.tv_city_name);
 
     }

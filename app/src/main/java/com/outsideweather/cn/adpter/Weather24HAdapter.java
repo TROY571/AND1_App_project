@@ -27,14 +27,14 @@ public class Weather24HAdapter extends BaseQuickAdapter<WeatherHourlyBean.Hourly
     @Override
     protected void convert(BaseViewHolder viewHolder, WeatherHourlyBean.HourlyBean item) {
         String time = BaseDateUtils.updateTime(item.getFxTime());
-        //时间
+        //time
         viewHolder.setText(R.id.tv_time, HeFengWeatherUtil.showTimeInfo(time) + time)
-                //温度
+                //temperature
                 .setText(R.id.tv_temperature, item.getTemp() + "℃");
 
-        //天气状态图片
+        //background image
         ImageView weatherStateIcon = viewHolder.getView(R.id.iv_weather_state);
-        //获取天气状态码，根据状态码来显示图标
+        //weather code
         int code = Integer.parseInt(item.getIcon());
         HeFengWeatherUtil.changeIcon(weatherStateIcon, code);
         viewHolder.addOnClickListener(R.id.item_hourly);

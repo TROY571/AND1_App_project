@@ -31,7 +31,7 @@ import java.util.List;
 
 /**
  * email：
- * description：笔记界面
+ * description：Note detail
  */
 public class NoteFragement extends BaseLazyFragment {
 
@@ -116,7 +116,7 @@ public class NoteFragement extends BaseLazyFragment {
         lySearch1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //去搜索界面
+                //go to SearchNoteActivity
                 SearchNoteActivity.startSearchNoteActivity(getActivity());
             }
         });
