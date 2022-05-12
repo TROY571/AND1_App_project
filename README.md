@@ -18,8 +18,8 @@ NonFunctional Requirements:
 
 
 Otherone's Code:
-WhiteWindmills: https://cloud.tencent.com/developer/article/1705313
-Baidu Map: https://lbsyun.baidu.com/index.php?title=android-locsdk
-Hefeng Weather: https://dev.qweather.com/docs/
+* WhiteWindmills: https://cloud.tencent.com/developer/article/1705313
+* Baidu Map: https://lbsyun.baidu.com/index.php?title=android-locsdk
+* Hefeng Weather: https://dev.qweather.com/docs/
 
 Demo Link: https://youtu.be/ASK2B0vlqq8
