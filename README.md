@@ -8,7 +8,7 @@ Functional Requirements:
 
 * The app will provide weather forecast information.✓  ps:About the Air quality part,because the API don't have the information of all the cities,so some of the city is null.
 * The app will change different wallpapers according to the current weather.✓
-* The app will allow you to add, edit and delete notepad.✓
+* The app will allow you to add, edit and delete note.✓
 * The app will allow you to add monitoring cities manually.✓
 
 NonFunctional Requirements:
