@@ -16,14 +16,14 @@ import java.util.List;
 public interface NoteDao {
 
     @Insert
-    void insertNote(NoteBean noteModels);
+    void insertNote(NoteBean note);
 
     @Delete
-    void deleteNote(NoteBean noteModel);
+    void deleteNote(NoteBean note);
 
 
     @Update
-    void updateNote(NoteBean noteModel);
+    void updateNote(NoteBean note);
 
     @Query("SELECT * FROM  NoteBean" )
     List<NoteBean> getAllNotes();

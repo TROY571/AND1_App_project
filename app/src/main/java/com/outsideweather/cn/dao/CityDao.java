@@ -16,14 +16,14 @@ import java.util.List;
 @Dao
 public interface CityDao {
     @Insert
-    void insertCity(CityBean cityBeans);
+    void insertCity(CityBean city);
 
     @Delete
-    void deleteCity(CityBean cityBean);
+    void deleteCity(CityBean city);
 
 
     @Update
-    void updateCity(CityBean cityBean);
+    void updateCity(CityBean city);
 
     @Query("SELECT * FROM  CityBean " )
     List<CityBean> getAllCities();

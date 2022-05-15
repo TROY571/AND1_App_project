@@ -217,7 +217,7 @@ public class WeatherFragement extends BaseLazyFragment {
             @Override
             public void onClick(View view) {
                 initData();
-                Toast.makeText(getContext(),"Refresh Information",Toast.LENGTH_SHORT).show();//刷新天气 当前定位的天气
+                PublicTostUtil.showTost("Refresh Information");//刷新天气 当前定位的天气
             }
         });
         ivAdd.setOnClickListener(new View.OnClickListener() {
