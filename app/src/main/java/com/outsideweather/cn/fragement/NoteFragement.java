@@ -20,9 +20,9 @@ import com.outsideweather.cn.dao.NoteDao;
 import com.outsideweather.cn.db.AppDataBaseDB;
 import com.outsideweather.cn.dialog.BaseDialog;
 import com.outsideweather.cn.Bean.NoteBean;
-import com.outsideweather.cn.activity.AddNoteActivity;
-import com.outsideweather.cn.activity.NoteDetailActivity;
-import com.outsideweather.cn.activity.SearchNoteActivity;
+import com.outsideweather.cn.ui.AddNoteActivity;
+import com.outsideweather.cn.ui.NoteDetailActivity;
+import com.outsideweather.cn.ui.SearchNoteActivity;
 import com.outsideweather.cn.util.StatusBarUtil;
 import com.ruffian.library.widget.RRelativeLayout;
 

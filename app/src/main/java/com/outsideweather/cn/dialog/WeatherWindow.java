@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import com.outsideweather.cn.R;
-import com.outsideweather.cn.activity.WeatherCityActivity;
+import com.outsideweather.cn.ui.WeatherCityActivity;
 
 /**
  * 日期：2022/4/2

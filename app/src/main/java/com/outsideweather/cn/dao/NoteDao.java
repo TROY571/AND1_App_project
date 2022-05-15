@@ -16,7 +16,7 @@ import java.util.List;
 public interface NoteDao {
 
     @Insert
-    void insertNote(NoteBean...noteModels);
+    void insertNote(NoteBean noteModels);
 
     @Delete
     void deleteNote(NoteBean noteModel);

@@ -1,4 +1,4 @@
-package com.outsideweather.cn.activity;
+package com.outsideweather.cn.ui;
 
 import android.content.Context;
 import android.content.Intent;
@@ -19,20 +19,18 @@ import com.outsideweather.cn.base.BaseActivity;
 import com.outsideweather.cn.Bean.NoteBean;
 import com.outsideweather.cn.dao.NoteDao;
 import com.outsideweather.cn.db.AppDataBaseDB;
+import com.outsideweather.cn.util.BaseDateUtils;
 import com.ruffian.library.widget.RTextView;
 
 
 /**
  * email：
- * description：EditNoteActivity
+ * description AddNoteActivity
  */
-public class EditNoteActivity extends BaseActivity {
-    private LinearLayout lyImage;
-    private ImageView ivAdd3;
-
-    public static void statrEditNoteActivity(Context context, int id) {
-        Intent intent = new Intent(context, EditNoteActivity.class);
-        intent.putExtra("uid", String.valueOf(id));
+public class AddNoteActivity extends BaseActivity {
+    private LinearLayout settingItemAutoPlay;
+    public static void startAddNoteActivity(Context context) {
+        Intent intent = new Intent(context, AddNoteActivity.class);
         context.startActivity(intent);
     }
 
@@ -44,17 +42,10 @@ public class EditNoteActivity extends BaseActivity {
     private TextView tvTime;
     private EditText etContent;
 
-    private String uid;
-    private NoteBean noteBean;
-
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_note_edit);
-        uid = getIntent().getStringExtra("uid");
-        NoteDao noteDao = AppDataBaseDB.getInstance(this).noteDao();
-        noteBean = noteDao.getNoteByUid(Integer.valueOf(uid));
+        setContentView(R.layout.activity_add_note);
         initView();
     }
 
@@ -70,34 +61,29 @@ public class EditNoteActivity extends BaseActivity {
         ivTitle = (TextView) findViewById(R.id.iv_title);
         tvSub = (RTextView) findViewById(R.id.tv_sub);
         etTitle = (EditText) findViewById(R.id.et_title);
-        etTitle.setText(noteBean.getNoteName());
+        String times = BaseDateUtils.getNowDateTime();
         tvTime = (TextView) findViewById(R.id.tv_time);
-        tvTime.setText(noteBean.getTime());
+        tvTime.setText(times);
         etContent = (EditText) findViewById(R.id.et_content);
-        etContent.setText(noteBean.getNoteContent());
-
         tvSub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (TextUtils.isEmpty(etTitle.getText().toString())) {
-                    Toast.makeText(EditNoteActivity.this, getString(R.string.note_add_title_input), Toast.LENGTH_LONG).show();
+                    Toast.makeText(AddNoteActivity.this, getString(R.string.note_add_title_input), Toast.LENGTH_LONG).show();
                     return;
                 }
                 if (TextUtils.isEmpty(etContent.getText().toString())) {
-                    Toast.makeText(EditNoteActivity.this,  getString(R.string.note_add_content_input), Toast.LENGTH_LONG).show();
+                    Toast.makeText(AddNoteActivity.this,  getString(R.string.note_add_content_input), Toast.LENGTH_LONG).show();
                     return;
                 }
-                NoteDao noteDao= AppDataBaseDB.getInstance(EditNoteActivity.this).noteDao();
-                noteBean.setNoteContent(etContent.getText().toString());
-                noteBean.setNoteName(etTitle.getText().toString());
-                noteDao.updateNote(noteBean);
+                String times = BaseDateUtils.getNowDateTime();
+                NoteDao noteDao= AppDataBaseDB.getInstance(AddNoteActivity.this).noteDao();
+                noteDao.insertNote(new NoteBean(etTitle.getText().toString(),etContent.getText().toString(),times));
                 finish();
             }
         });
 
 
     }
-
-
 
 }

@@ -16,7 +16,7 @@ import java.util.List;
 @Dao
 public interface CityDao {
     @Insert
-    void insertCity(CityBean...cityBeans);
+    void insertCity(CityBean cityBeans);
 
     @Delete
     void deleteCity(CityBean cityBean);
