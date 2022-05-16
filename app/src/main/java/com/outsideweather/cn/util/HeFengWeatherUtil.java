@@ -322,13 +322,18 @@ public class HeFengWeatherUtil {
                 break;
             //有风
             case 200:
+                weatherStateIcon.setBackgroundResource(R.mipmap.icon_200);
+                break;
                 //微风
             case 202:
+                weatherStateIcon.setBackgroundResource(R.mipmap.icon_200);
+                break;
                 //和风
             case 203:
+                weatherStateIcon.setBackgroundResource(R.mipmap.icon_200);
+                break;
                 //清风
             case 204:
-                //因为这几个状态的图标是一样的
                 weatherStateIcon.setBackgroundResource(R.mipmap.icon_200);
                 break;
             //平静
@@ -337,26 +342,38 @@ public class HeFengWeatherUtil {
                 break;
             //强风/劲风
             case 205:
+                weatherStateIcon.setBackgroundResource(R.mipmap.icon_205);
+                break;
                 //疾风
             case 206:
+                weatherStateIcon.setBackgroundResource(R.mipmap.icon_205);
+                break;
                 //大风
             case 207:
-                //因为这几个状态的图标是一样的
                 weatherStateIcon.setBackgroundResource(R.mipmap.icon_205);
                 break;
             //烈风
             case 208:
+                weatherStateIcon.setBackgroundResource(R.mipmap.icon_208);
+                break;
                 //风暴
             case 209:
+                weatherStateIcon.setBackgroundResource(R.mipmap.icon_208);
+                break;
                 //狂爆风
             case 210:
+                weatherStateIcon.setBackgroundResource(R.mipmap.icon_208);
+                break;
                 //飓风
             case 211:
+                weatherStateIcon.setBackgroundResource(R.mipmap.icon_208);
+                break;
                 //龙卷风
             case 212:
+                weatherStateIcon.setBackgroundResource(R.mipmap.icon_208);
+                break;
                 //热带风暴
             case 213:
-                //因为这几个状态的图标是一样的
                 weatherStateIcon.setBackgroundResource(R.mipmap.icon_208);
                 break;
             //阵雨
@@ -513,13 +530,19 @@ public class HeFengWeatherUtil {
                 break;
             //浓雾
             case 509:
+                weatherStateIcon.setBackgroundResource(R.mipmap.icon_509);
+                break;
                 //强浓雾
             case 510:
+                weatherStateIcon.setBackgroundResource(R.mipmap.icon_510);
+                break;
                 //大雾
             case 514:
+                weatherStateIcon.setBackgroundResource(R.mipmap.icon_514);
+                break;
                 //特强浓雾
             case 515:
-                weatherStateIcon.setBackgroundResource(R.mipmap.icon_509);
+                weatherStateIcon.setBackgroundResource(R.mipmap.icon_515);
                 break;
             //中度霾
             case 511:
