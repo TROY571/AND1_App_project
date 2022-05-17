@@ -2,6 +2,7 @@
 
 Weather Forecast app
 
+[image](https://github.com/TROY571/AND1_App_project/blob/master/app/src/main/res/mipmap-xhdpi/iconstart.png)
 In modern times, people rely heavily on the weather forecast to make sure their schedule is not affected by the weather. And people also relied heavily on notepad to organise their lives, and many people have a very large number of them in their phones. So I wanted to make a weather forecasting app that integrated a notepad.
 
 Functional Requirements:
